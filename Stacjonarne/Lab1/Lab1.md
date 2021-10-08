@@ -1,4 +1,4 @@
-# Labolatorium 2
+# Laboratorium 2
 
 Celem tego laboratorium jest dalsza powtórka języka c, dodatkowo będzie poruszona tematyka alokacji pamięci, 
 tworzenia i używania bibliotek oraz przekazywania parametrów do funkcji main.
@@ -6,9 +6,10 @@ tworzenia i używania bibliotek oraz przekazywania parametrów do funkcji main.
 ## Przygotowanie do pracy
 
 1. Stwórz repozytorium `JiPP2` na GitHubie.
-2. Otwórz repozytorium w CLion.
-3. W głównym folderze stwórz folder `allocation_basics`.
-4. Przenieś do nowostworzonego folderu pliki `main.cpp` oraz `CMakeLists.txt`.
+2. Dodaj prowadzącego do repozytorium.
+3. Otwórz repozytorium w CLion.
+4. W głównym folderze stwórz folder `allocation_basics`.
+5. Przenieś do nowostworzonego folderu pliki `main.cpp` oraz `CMakeLists.txt`.
 
 ## CMake
 
