@@ -96,7 +96,18 @@ Analizując powyższy plik, można zauważyć, że będzie kompilowany w standar
 będzie biblioteka pthread.
 
 ```cmake
-Turaj przyklad z większą ilością dołączanych do kompilacji plików.
+cmake_minimum_required(VERSION 3.16)
+project(HelloWorld)
+
+set(CMAKE_CXX_STANDARD 20)
+
+include_directories(include)
+
+add_executable(HelloWorld 
+        src/main.cpp 
+        src/HelloWorld.cpp)
+
+target_link_libraries(HelloWorld pthread)
 ```
 
 ### Komendy cmake
