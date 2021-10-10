@@ -155,6 +155,32 @@ make HelloWorld
 
 <div style="page-break-after: always;"></div>
 
+
+## Alokacja pamięci
+Do tej pory pisząc programy w których organizowałeś dane, byłeś zmuszany do określania górnej granicy danych, jakie może pomieścić Twój program. Takie ograniczanie bardzo często nie jest jednak komfortowe i skuteczną alternatywą jest tu dynamiczne zarządzanie pamięcią. W języku C do przydzielania i zwalniania pamięci służyły głównie funkcje malloc() i free(). Korzystanie z nich było i jest nadal bardzo popularne, jednak w C++ zostały one zastąpione operatorami new i delete.
+
+### Dynamiczne przydzielenie pamięci
+W języku C++ do przydzielania nowego bloku pamięci służy operator new. Jego składnia wygląda następująco:
+```
+wskaznik1 = new typ_zmiennej;
+wskaznik2 = new typ_zmiennej[ ilosc_elementow_danego_typu ];
+```
+
+### Zwalnianie pamięci przydzielonej dynamicznie
+Zwalnianie pamięci przydzielonej dynamicznie jest jeszcze prostsze od jej przydziału i służy do tego operator delete. Jeśli pamięć dla danych, na które wskazuje zmienna wskaznik została przydzielona bez parametru określającego ilość elementów w tablicy, to usuwana jest następującą składnią:
+```
+delete wskaznik;
+```
+
+
+Funkcji malloc() nie można stosować zamiennie z operatorem new.
+Funkcji free() nie można stosować zamiennie z operatorem delete.
+Zamiana operatora new na funkcję malloc() może spowodować nieprawidłowe funkcjonowanie programu - operator new wykonuje czynności, które przy użyciu funkcji malloc() trzeba wywołać ręcznie.
+Jeśli dokonujesz zamiany funkcji malloc() na operator new, pamiętaj aby pozamieniać również funkcję free() na operator delete (lub delete[] w zależności od sytuacji).
+
+
+
+
 ## Przekazywanie parametrów podczas uruchamiania aplikacji
 
 Uruchamiając aplikacje konsolowe, często się zdarza, że przekazujemy różne parametry, zaraz po nazwie programu, aby 
