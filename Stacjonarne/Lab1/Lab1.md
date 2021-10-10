@@ -153,6 +153,193 @@ make HelloWorld
 
 [Tutorial CMake](https://cmake.org/cmake/help/latest/guide/tutorial/index.html)
 
+<div style="page-break-after: always;"></div>
+
+## Przekazywanie parametrów podczas uruchamiania aplikacji
+
+Uruchamiając aplikacje konsolowe, często się zdarza, że przekazujemy różne parametry, zaraz po nazwie programu, aby 
+odpalić różne funkcjonalności, przykładowo w systemie Linux użyjemy komendy `ls -l`, aby wyświetlić pliki znajdujące 
+się w folderze w formie listy.
+
+Tworząc aplikacje też możemy dodać takową funkcjonalność, zgodnie z [dokumentacją funkcji main](https://en.cppreference.com/w/cpp/language/main_function) musimy dodać do niej 2 parametry:
+
+* `int argc` - ilość przekazanych parametrów
+* `char *argv[]` - parametry wpisane w konsoli
+
+**Ważne** nazwa programu jest pierwszą wartością w zmiennej `argv` (znajduje się w `argv[0]`). Parametry podawane 
+podczas wywoływania są rozdzielane spacjami.
+
+Stwórzmy przykładowy program wypisujący wszystkie przekazane parametry:
+
+```c++
+#include <iostream>
+
+using namespace std;
+
+int main(int argc, char *argv[]) {
+    for(int i = 0; i < argc ; ++i) {
+        cout << argv[i] <<endl;        
+    }
+    
+    return 0;
+}
+```
+
+Skompilujmy nasz program i go wywołajmy za pomocą następującej komendy (nazwa naszego programu, to a.exe):
+
+```console
+a.exe 5 tarka Pelikan
+```
+
+Otrzymamy wynik:
+
+```console
+a.exe
+5
+tarka
+Pelikan
+```
+
+### Zadanie
+
+Stwórz program, który będzie dokonywał obliczeń, na podstawie przekazanych do niego parametrów (nie używamy cin). 
+Pierwszy z nich 
+będzie decydował, jakie to będzie działanie:
+1. `add` - dodawanie dwóch liczb 
+2. `subtract` - odejmowanie dwóch liczb
+3. `volume` - obliczanie objętości graniastosłupa prostego o podstawie trapezu
+4. `help` - wyświetlanie dokumentacji
+
+Jeżeli przekazano zły bądź złą ilość parametrów powinien zostać wyświetlony komunikat o błędzie i dokumentacja, 
+która powinna wyglądać w następujący sposób (tu jest tylko kawałek):
+
+```console
+Simple calculatur
+simpleCalc [nazwa działania]
+
+Działania:
+add [a] [b]
+    Dodawanie dwóch liczb ([a] i [b]) całkowitych.    
+```
+
+**Założenie**
+
+Zawsze podajemy liczby tam, gdzie mają być liczby, nie wpisujemy tam tekstu.
+
+<div style="page-break-after: always;"></div>
+
+## Tworzenie biblioteki
+
+Tworząc różnego rodzaju aplikacje, nie zawsze będziemy tworzyć programy, które będą uruchamiane. Czasem stworzymy 
+bibliotekę, czyli zestaw funkcji, których ktoś może użyć przy tworzeniu własnej aplikacji. Podstawową różnicą 
+względem wcześniej pisanych programów jest brak funkcji `main` oraz w pliku cmake nie używamy `add_executable`, 
+tylko `add_library`.
+
+#### Przygotowanie
+
+1. W głównym folderze repozytorium stwórz nowy folder `firstLib`, w którym utwórz strukturę projektu.
+2. Utwórz plik `lib.h` oraz `lib.cpp` w odpowiednich folderach
+3. Stwórz plik `CMakeLists.txt` i dodaj odpowiedni wpis w głównym folderze.
+4. Stwórz funkcję typu `void` o nazwie `itIsWork`, która będzie wypisywać `Yes it work!`.
+5. W głównym folderze repozytorium stwórz nowy folder `firstLibCall`, utwórz plik `CMakeLists.txt` i dodaj 
+   odpowiedni wpis w głównym folderze. Stwórz także plik `main.cpp`.
+6. W pliku `main.cpp` stwórz funkcję main.
+7. W `firstLibCall/CMakeLists.txt` dodaj wpis dołączania biblioteki oraz przeszukiwania przeszukiwania pod kątem 
+   plików nagłówkowych.
+
+```cmake
+include_directories(${CMAKE_SOURCE_DIR}/firstLib/include)
+add_executable(firstLibCall main.cpp)
+target_link_libraries(firstLibCall firstLib)
+```
+
+8. Sprawdź, czy działa.
+
+## Przekazywanie parametrów przez referencję
+
+[Dokumentacja](https://en.cppreference.com/w/cpp/language/reference)
+
+Głównym założeniem przekazywania parametru przez referencję jest to, że możemy zmieniać jego wartość nie tylko w 
+funkcji, ale też w miejscu, w którym go wywołujemy. Dodatkowo może mieć to pozytywny wpływ na wydajność, ponieważ 
+nie jest tworzona kopia przekazywanego parametru, tylko jest przekazywana referencja. Aby lepiej zrozumieć tego 
+działanie, stwórzmy funkcję, która dodaje do siebie dwie liczby.
+
+```c++
+int add(int a, int b) {
+    return a + b;
+}
+```
+
+Wywołanie:
+
+```c++
+int w = add(5,5);
+cout << w << endl;
+```
+
+Teraz do przekazania wyniku użyjmy referencji. Względem wcześniejszego przykładu będziemy potrzebować o jeden 
+parametr więcej.
+
+```c++
+void add(int a, int b, int &c) {
+    c = a + b;
+}
+```
+
+Wywołanie:
+
+```c++
+int k;
+add(5, 5, k);
+cout << k << endl;
+```
+
+<div style="page-break-after: always;"></div>
+
+# Projekt
+
+## Biblioteka
+
+Stwórz statyczną bibliotekę dokonująca obliczeń na macierzach. Zwracanie wyników powinno być wykonywane za pomocą 
+referencji. Biblioteka powinna zawierać następujące funkcjonalności:
+1. `addMatrix` - dodawanie dwóch macierzy
+2. `subtractMatrix` - odejmowanie dwóch macierzy
+3. `multiplyMatrix` - mnożenie dwóch macierzy
+4. `multiplyByScalar` - mnożenie przez skalar
+5. `transpozeMatrix` - odwracanie macierzy
+6. `powerMatrix` - potęgowanie macierzy
+7. `determinantMatrix` - wyznacznik macierzy (funkcja powinna zwracać `double` oraz `int`, w tym przypadku wynik nie 
+   jest 
+   przekazywany przez referencję)
+8. `matrixIsDiagonal` - sprawdzanie, czy macierz jest diagonalna (funkcja powinna zwracać `bool`, w tym przypadku wynik 
+   nie jest przekazywany przez referencję)
+
+Wszystkie funkcjonalności powinny mieć możliwość dokonywania obliczeń na zmiennych typu `double` oraz `int` 
+(przeciążanie funkcji). 
+
+## Program
+
+Stwórz program, który będzie wykorzystywał powyższą bibliotekę. Jako parametr uruchamiania go będzie przyjmował 
+nazwę funkcjonalności, a następnie za pomocą `cin` wczytaj macierze. Dokonaj obliczeń i wyświetl wynik.
+
+### Wczytywanie macierzy
+
+#### Założenie
+
+Podczas wczytywania danych, jeżeli ma być wczytana liczba, to nie będzie podawany tekst.
+
+## O czym musisz pamiętać
+
+1. Napisaniu dokumentacji do każdej funkcji.
+2. Używaniu nazw zmiennych, które mówią, co przechowują.
+3. Czystości kodu (na ile ją umiecie).
+4. Strukturze plików.
+5. Napisaniu zabezpieczenia podczas tworzenia macierzy (jeżeli tworzymy macierz 4x4, to musimy podać 16 liczb).
+
+
+
+
+
 
 
 
