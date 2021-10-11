@@ -178,7 +178,116 @@ Funkcji free() nie można stosować zamiennie z operatorem delete.
 Zamiana operatora new na funkcję malloc() może spowodować nieprawidłowe funkcjonowanie programu - operator new wykonuje czynności, które przy użyciu funkcji malloc() trzeba wywołać ręcznie.
 Jeśli dokonujesz zamiany funkcji malloc() na operator new, pamiętaj aby pozamieniać również funkcję free() na operator delete (lub delete[] w zależności od sytuacji).
 
+W ramach ciekawostki warto ajrzeć tutaj:
+https://en.cppreference.com/w/cpp/memory
 
+Wskaźnik poprzedzony jest gwiazdką (*) i przechowuje adres pamięci (a nie wartość) zmiennej, na którą wskazuje. Deklarując wskaźnik postępujemy tak jak ze zwykłymi zmiennymi, jednak nazwę wskaźnika poprzedzamy gwiazdką.
+
+```
+int liczba; //zmienna liczbowa
+int *wsk; //wskaźnik
+```
+
+Bardzo ważne jest aby nie korzystać ze wskaźnika który nie wskazuje na żadną zmienną! Prowadzi to zawsze do błędów i niesie ze sobą nieprzewidziane konsekwencje w działaniu programu. 
+
+```
+int liczba = 5;
+int *wsk =&telefon;
+```
+
+Za pomocą operatora pobrania adresu (&) pobrany został adres zmiennej liczba. Za pomocą operatora pobrania adresu (&) pobraliśmy adres zmiennej telefon. Adres zmiennej został przypisany wskaźnikowi wsk. Pamiętaj że gwiazdka przed nazwą wskaźnika to nie operator wyłuskania! Chcąc wyświetlić wartość wskaźnika posłużymy się operatorem wyłuskania czyli gwiazdką ()*.
+
+```
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int telefon = 12345;    //zmienna liczbowa
+    int *wsk = &telefon;    //wskaźnik wsk zawiera adres zmiennej telefon
+    
+    cout << *wsk << endl;
+    
+    return 0;
+}
+```
+
+Powyższy przykład wyświetli na ekranie wartość zmiennej liczba. Przed wyświetleniem wskaźnika został użyty operator wyłuskania. Pobiera on wartość zmiennej spod adresu ze zmiennej wskaźnikowej. Bez użycia operatora wyłuskania, została by wyświetlona wartość zmiennej wskaźnikowej wsk czyli adres zmiennej liczba:
+
+```
+int liczba = 12345;         //zmienna liczbowa
+int *wsk = &liczba;         //przypisanie wskaźnikowi adresu zmiennej liczba
+										         
+cout << *wsk << endl;        //wyświetlenie wyłuskanej wartości wskaźnika (12345)
+cout << wsk << endl;         //wyświetlenie adresu zmiennej liczba
+cout << &wsk << endl;        //wyświetlenie adresu wskaźnika
+cout << &liczba << endl;    //wyświetlenie adresu zmiennej liczba
+```
+
+Proszę poszukać dlaczego jeżeli nie inicjujemy wartości we wskaźniku, warto przypisać nullptr?
+
+## Przypomnienie pętli for
+
+Ćwiczenie ma na celu przypomnienie prostej pętli for. 
+```
+Składnia
+for (inicjalizacja; warunek_pętli; krok_pętli)
+{
+treść
+}
+```
+
+Proszę napisać pętle, która wyświetli 5 razy napis JiPP2.
+
+
+Zastanówcie się dlaczego lepiej stosować ++i zamiast i++?
+
+## Alokowanie pamięci dla tablic
+
+Aby dobrze poznać tablice dynamiczne należy zrozumieć działanie zwykłych statycznych tablic. Inicjowanie tablicy jest bardzo proste, podczas inicjacji możemy z góry określić elementy jakie zawiera tablica. 
+```
+int tablica[5] = { 10, 11, 12, 13, 14};
+```
+
+Ciekawostką może okazać się fakt, że nazwa tablicy jest jednocześnie wskaźnikiem na jej pierwszy element.
+```
+int tablica[5] = { 10, 11, 12, 13, 14};
+
+cout << *tablica;   // wyświetli tablica[0];
+cout << tablica;    // wartość wskaźnika, adres pierwszego elementu
+```
+
+Tablice statyczne nie dają nam możliwości decydowania o ich wymiarach podczas działania programu. Oznacza to że musimy znać wielkość tablicy na poziomie tworzenia aplikacji. Kolejną wadą takowych tablic jest fakt, iż generując tablicę dwuwymiarową musi być ona prostokątna.
+
+```
+int tablica[2][3];
+```
+
+Deklarując tablicę dynamiczną należy zadeklarować wskaźnik tego samego typu co elementy tablicy. Następnie rezerwujemy miejsce w pamięci o określonym typie (takim samym jak wskaźnik). Służy do tego rozkaz new. Tablicy dynamicznej używamy tak samo jak zwykłą tablice statyczną, nie trzeba operować wskaźnikami, wskaźniki potrzebne są tylko przy deklaracji. Wynika to z faktu opisanego wyżej - tablica statyczna to też wskaźniki chociaż nie są do końca widoczne.
+
+```
+int * tablica = new int[3];
+
+tablica[0] = 11;
+tablica[1] = 12;
+tablica[2] = 13;
+
+delete [] tablica;
+```
+Każdy dynamiczny obiekt utworzony podczas działania programu należy na końcu  usunąć poleceniem delete. Przy usuwaniu tablicy dodatkowo dodajemy kwadratowy nawias czyli delete []. Dzięki użyciu tablicy dynamicznej użytkownik ma możliwość decydowania o rozmiarze tablicy podczas działania programu:
+```
+int rozmiar;
+
+cout << "Podaj rozmiar tablicy:" << endl;
+cin >> rozmiar;
+
+int * tablica = new int[rozmiar];
+
+delete [] tablica;
+```
+
+Zadanie: proszę utworzyć dwolną tablicę dwuwymiarową oraz dla chętnych trójwymiarową.
 
 
 ## Przekazywanie parametrów podczas uruchamiania aplikacji
@@ -321,6 +430,57 @@ cout << k << endl;
 ```
 
 <div style="page-break-after: always;"></div>
+
+Proszę utworzyć przeciążenie do powyższej funkcji
+
+## Funkcja przyjmująca tablicę i dokonująca na niej obliczeń
+Zadanie ma na cedlu przedstawienie i omówienie jak działa przekazywanie tablicy do wnętrza funkcji poprzez jej argumenty.
+
+
+Konstrukcja nagłówka funkcji dla tablicy jednowymiarowej
+```
+typ_funkcji nazwa(typ_elementów_tablicy nazwa_tablicy[]);
+
+void funkcja(int tablica[10]);
+```
+
+Dla przypomienia:
+Nazwa tablicy jest wskaźnikiem na jej pierwszy element. Oznacza to, że przekazując tablicę jako argument funkcji, będziemy pracować na jej oryginalnym adresie (wszelkie zmiany w modyfikacji tablicy będą widoczne w miejscu, gdzie ją stworzyliśmy).
+
+
+Program zamieniający wartosci tablicy na ich kwadraty:
+
+```
+#include<iostream>
+using namespace std;
+ 
+void zamiana(int tab[])
+{
+        for(int i=0; i<10; i++)
+                tab[i]*=tab[i]; //lub tab[i] = tab[i] * tab[i];
+}
+ 
+int main()
+{
+        //inicjacja tablicy
+        int tablica[10] = {0, 3, 4, 3, 6, 7, 11, -5, -10, 87}; 
+        
+        //wypisanie elementów tablicy
+        for(int i=0;i<10;i++)
+                cout<<tablica[i]<<" ";
+        
+        cout<<endl; //wstawienie znaku końca linii (enter)
+        
+        //wykonanie polecenia
+        zamiana(tablica); //przekazując tablicę, podajemy tylko jej nazwę
+        
+        //ponowne wypisanie elementów tablicy
+        for(int i=0;i<10;i++)
+                cout<<tablica[i]<<" ";
+        
+        return 0;
+}
+```
 
 # Projekt
 
