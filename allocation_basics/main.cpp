@@ -3,30 +3,36 @@
 //
 
 #include <iostream>
+#include <string>
 
 using namespace std;
 
-int main(int argc, char *argv[]) {
-    cout <<argv[1] <<endl;
+int main(int argc, char* argv[]) {
+    int c = stoi(argv[1]);
+    cout << c << " " << argv[1] <<endl;
     int *n = new int;
     int k;
-    cout << n << endl << *n << endl << &n << endl << &k << endl;
+    cout << n << endl << *n << endl << &n << endl << & k << endl;
     delete n;
 
-    int *tab = new int[5];
-    delete[] tab;
-    int **tab2 = new int *[5];
+    int tab[3] = {3, 2, 1};
+
+    int *tabD = new int[5];
+    delete[] tabD;
+
+    int **tabDd = new int *[5];
 
     for (int i = 0; i < 5; ++i) {
-        tab2[i] = new int[5];
+        tabDd[i] = new int[5];
     }
 
     for (int i = 0; i < 5; ++i) {
-        delete[] tab2[i];
+        delete[] tabDd[i];
     }
 
-    delete[] tab2;
+    delete[] tabDd;
 
-    int tab3[3] = {3, 2, 1};
+
     return 0;
 }
+
