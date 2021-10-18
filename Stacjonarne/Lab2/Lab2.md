@@ -1,14 +1,14 @@
 # Laboratorium 3
 
-Calem tego laboratorium jest nauka tworzenia bibliotek przy użyciu CMake. Dodatkowo będzie poruszana tematyka 
+Calem tego laboratorium jest nauka tworzenia bibliotek przy użyciu CMake. Dodatkowo będzie poruszana tematyka
 przekazywania parametrów przez referencję oraz przeciążania funkcji.
 
 ## Tworzenie biblioteki
 
-Tworząc różnego rodzaju aplikacje, są funkcjonalności, które wykorzystujemy wielokrotnie w różnych programach. Można 
-je implementować za każdym razem bądź kopiować kod, lecz w znaczącym stopniu utrudnia to nim zarządzanie, a w 
-szczególności aktualizowanie. Bardzo ważnym aspektem jest też konieczność ponownych kompilacji. Kolejnym aspektem 
-jest udostępnianie naszej funkcjonalności innym. Jeżeli nie zależy nam na utajnieniu jej budowy, to możemy udostępnić 
+Tworząc różnego rodzaju aplikacje, są funkcjonalności, które wykorzystujemy wielokrotnie w różnych programach. Można
+je implementować za każdym razem bądź kopiować kod, lecz w znaczącym stopniu utrudnia to nim zarządzanie, a w
+szczególności aktualizowanie. Bardzo ważnym aspektem jest też konieczność ponownych kompilacji. Kolejnym aspektem
+jest udostępnianie naszej funkcjonalności innym. Jeżeli nie zależy nam na utajnieniu jej budowy, to możemy udostępnić
 kod, lecz w przeciwnym wypadku będziemy chcieli udostępnić skompilowaną wersję.
 
 Możemy spróbować stworzyć prostą definicję biblioteki. Jest to zestaw funkcjonalności, które chcemy używać wielokrotnie.
@@ -16,7 +16,7 @@ Możemy spróbować stworzyć prostą definicję biblioteki. Jest to zestaw funk
 Rodzaje bibliotek:
 - heder only — biblioteka stworzona tylko i wyłącznie w plikach nagłówkowych
 - static — biblioteka statyczna, musi ona zostać dołączona w trakcie kompilowania programu
-- shared — biblioteka dynamiczna, może zostać dołączona w trakcie kompilowania programu, bądź załadowana w trakcie jego 
+- shared — biblioteka dynamiczna, może zostać dołączona w trakcie kompilowania programu, bądź załadowana w trakcie jego
   działania
 
 Podczas zajęć będziemy się zajmować bibliotekami statycznymi.
@@ -32,9 +32,9 @@ Główne różnica biblioteki względem programów wykonywalnych:
 
 Przykład biblioteki i jej wywołania można zobaczyć w folderze `Examples/SimpleLib`.
 
-Zacznijmy omawianie kodu biblioteki (`Examples/SimpleLib/Library`). Będzie ona udostępniać funkcjonalność 
-wczytywania i wypisywania naszego imienia na ekran. W pliku `include/simpleLib/lib.h` tworzymy przepis na naszą 
-bibliotekę, czyli definiujemy funkcję, natomiast w pliku cpp (`src/lib.cpp`) jej ciało. Najważniejsza część, która 
+Zacznijmy omawianie kodu biblioteki (`Examples/SimpleLib/Library`). Będzie ona udostępniać funkcjonalność
+wczytywania i wypisywania naszego imienia na ekran. W pliku `include/simpleLib/lib.h` tworzymy przepis na naszą
+bibliotekę, czyli definiujemy funkcję, natomiast w pliku cpp (`src/lib.cpp`) jej ciało. Najważniejsza część, która
 nas interesuje, czyli plik [CMake](Example/SimpleLib/Library/CMakeLists.txt) (`Example/SimpleLib/Library/CMakeLists.txt`):
 
 ```cmake
@@ -48,14 +48,14 @@ add_library(simpleLibLib STATIC src/lib.cpp)
 ```
 *<sup>Opis znajduje się w pliku.</sup>*
 
-Plik nieznacznie różni się od wcześniej tworzonych. Zamiast `add_executable` używamy `add_library`, dodatkowo 
-dopisaliśmy w środku słowo `STATIC`, które definiuje jaki typ biblioteki będziemy chcieli uzyskać. W naszym 
-przypadku będzie to biblioteka statyczna. 
+Plik nieznacznie różni się od wcześniej tworzonych. Zamiast `add_executable` używamy `add_library`, dodatkowo
+dopisaliśmy w środku słowo `STATIC`, które definiuje jaki typ biblioteki będziemy chcieli uzyskać. W naszym
+przypadku będzie to biblioteka statyczna.
 
 &nbsp;
 
-Część aplikacji, która używa naszej biblioteki (`Examples/SimpleLib/App`). Plik `main.cpp` załącza plik nagłówkowy 
-biblioteki, abyśmy znali przepis na naszą bibliotekę, wiedzieli jakie funkcjonalności ona oferuje. W funkcji `main` 
+Część aplikacji, która używa naszej biblioteki (`Examples/SimpleLib/App`). Plik `main.cpp` załącza plik nagłówkowy
+biblioteki, abyśmy znali przepis na naszą bibliotekę, wiedzieli jakie funkcjonalności ona oferuje. W funkcji `main`
 wywołujemy naszą funkcję. <br/>
 Najważniejsze, czyli plik [`CMakeLists.txt`](Examples/SimpleLib/App/CMakeLists.txt) (`Examples/SimpleLib/App/CMakeLists.txt`)
 
@@ -72,11 +72,11 @@ target_link_libraries(simpleLibApp simpleLibLib)
 ```
 *<sup>Opis znajduje się w pliku.</sup>*
 
-Na początku wskazujemy, jaki folder ma być przeszukiwany pod względem plików nagłówkowych, następnie definiujemy, 
+Na początku wskazujemy, jaki folder ma być przeszukiwany pod względem plików nagłówkowych, następnie definiujemy,
 które pliki mają być skompilowane. Kolejnym krokiem jest zalinkowanie biblioteki, której używamy za pomocą `target_link_libraries`
- w parametrach podajemy nazwę celu (target name, czyli pierwszy parametr w komendzie `add_executable`), następnie 
-mówimy jaką bibliotekę chcemy zalinkować, w naszym przypadku podajemy nazwę z pierwszego parametru komendy 
-`add_library`. 
+w parametrach podajemy nazwę celu (target name, czyli pierwszy parametr w komendzie `add_executable`), następnie
+mówimy jaką bibliotekę chcemy zalinkować, w naszym przypadku podajemy nazwę z pierwszego parametru komendy
+`add_library`.
 
 
 &nbsp;
@@ -105,7 +105,7 @@ target_link_libraries(firstLibCall firstLib)
 
 **Przykład był kompilowany pod systemem linux, uważaj na rozszerzenia plików**
 
-Nie zawsze mamy kod biblioteki, którą chcemy użyć. Rozważmy przypadek, kiedy do dyspozycji mamy już przygotowaną, 
+Nie zawsze mamy kod biblioteki, którą chcemy użyć. Rozważmy przypadek, kiedy do dyspozycji mamy już przygotowaną,
 skompilowana bibliotekę. Struktura jej plików wygląda następująco:
 
 ```console
@@ -117,7 +117,7 @@ skompilowana bibliotekę. Struktura jej plików wygląda następująco:
 └── libexampleLib.a
 ```
 
-W folderze include znajduje się przepis na tę bibliotekę, a plik `libExampleLib.a` zawiera jej implementację. W 
+W folderze include znajduje się przepis na tę bibliotekę, a plik `libExampleLib.a` zawiera jej implementację. W
 takim przypadku należy w inny sposób ją wywołać w pliku CMake.
 
 ```cmake
@@ -171,21 +171,21 @@ cout << k << endl;
 
 <div style="page-break-after: always;"></div>
 
-##Przeciązanie funckji
+## Przeciązanie funckji
 
 Funkcje można w C++ (ale nie w C) przeciążać. Oznacza to sytuację, gdy w tym samym zakresie są widoczne deklaracje/definicje kilku funkcji o tej samej nazwie. Oczywiście, aby na etapie kompilacji było wiadomo, o wywołanie której funkcji nam chodzi, wszystkie wersje funkcji muszą się wystarczająco różnić. Co to znaczy wystarczająco? Generalnie, muszą się różnić na tyle, aby można było jednoznacznie wybrać jedną z nich na podstawie wywołania. Warunkiem koniecznym, choć niewystarczającym jest, aby funkcje o tej samej nazwie różniły się sygnaturą.
 
 Do sygnatury funkcji należy jej nazwa oraz liczba i typ parametrów nie licząc tych z wartościami domyślnymi. Typ funkcji, czyli typ wartości zwracanej, zwykle do sygnatury nie jest zaliczany.
 
 PRZYKLAD:
-```
+```c++
   int fun(double x, int k =0);
   double fun(double z);
 ```
 To dwie deklaracje różnych funkcji, ale o takiej samej sygnaturze, a mianowicie o sygnaturze fun(double). I rzeczywiście, wywołanie fun(1.5) byłoby najzupełniej legalnym i nie wymagającym żadnej niejawnej konwersji wywołaniem zarówno pierwszej, jak i drugiej z tych funkcji. Takie przeciążenie jest zatem nielegalne.
 
 Natomiast:
-```
+```c++
 double fun(int);
 double fun(unsigned);
 ```
@@ -193,23 +193,23 @@ to deklaracje funkcji różniących się sygnaturą. Wywołanie fun(15) jest wyw
 
 Z drugiej strony, różne sygnatury nie są jeszcze warunkiem dostatecznym na legalność przeciążenia. Widzimy to na przykładzie funkcji.
 
-```
+```c++
 void fun(int i);
 void fun(int& i);
 ```
 które mają różną sygnaturę, ale wywołanie fun(k), gdzie k jest typu int, może być traktowane jako wywołanie zarówno pierwszej, jak i drugiej z nich. Zatem takie przeciążenie byłoby nieprawidłowe. Podobnie nieprawidłowe byłoby przeciążenie:
-```
+```c++
 void fun(int tab[]);
 void fun(int * p);
 ```
 lub
-```
+```c++
 void fun(tab[3][3]);
 void fun(tab[5][3]);
 ```
 bo pierwszy wymiar tablicy wielowymiarowej nie ma znaczenia do określenia typu (jest i tak pomijany w tego rodzaju deklaracji/definicji). Natomiast:
 
-```
+```c++
 void fun(tab[3][3]);
 void fun(tab[3][5]);
 ```
@@ -217,7 +217,7 @@ prawidłowo deklaruje dwie przeciążone funkcje fun, gdyż tablice wielowymiaro
 
 
 ZADANIE:
-1) Napisz funkcję, która będzie liczyła pole figury. Pole będzie zależne od ilości oraz typu argumentów. 
+1) Napisz funkcję, która będzie liczyła pole figury. Pole będzie zależne od ilości oraz typu argumentów.
 
 
 ## Funkcja przyjmująca tablicę i dokonująca na niej obliczeń
@@ -270,10 +270,10 @@ int main()
 ```
 ZADAANIA:
 1) Napisz funkcję zwracającą liczbę losową z przedziału <a, b>, gdzie a i b
-to argumenty tej funkcji
+   to argumenty tej funkcji
 2) Napisz funkcję, która zwraca największą wartość przechowywaną w
-tablicy jednowymiarowej. Przetestuj ją w prostym programie (użyj tablicy
-alokowanej dynamicznie, wypełnionej liczbami losowymi z przedziału <1, 100>).
+   tablicy jednowymiarowej. Przetestuj ją w prostym programie (użyj tablicy
+   alokowanej dynamicznie, wypełnionej liczbami losowymi z przedziału <1, 100>).
 3) Napisz funkcję, która zmienia kolejność elementów tablicy (odwraca tablicę), podanej do funkcji jako argument.
 
 
@@ -291,7 +291,7 @@ Podsumowując przekazywanie przez wskaźnik:
 - wskaźniki także przekazujemy przez wartość, wynika to z faktu że wskaźnik też jest typem zmiennej (zmienna wskaźnikowa), jednak mimo że wskaźnik (adres miejsca w pamięci) zostanie skopiowany  to wartość wyłuskana ze wskaźnika nie jest już kopią
 
 PRZYKŁADOWY KOD:
-```
+```c++
 #include <iostream>
 #include <cstdlib>
 
@@ -335,7 +335,7 @@ int main()
 Argumenty funkcji to zmienne wskaźnikowe czyli “adresy do zmiennych”. Gwiazdka w argumentach nie jest operatorem wyłuskania, informuje ona kompilator że zmienna jest wskaźnikiem (czyli “adresem”). Jak można wykorzystać ten fakt? Nie trzeba deklarować zmiennych wskaźnikowych aby przekazywać argument funkcji przez wskaźnik. Można przekazać bezpośrednio adres za pomocą operatora pobrania adresu (&).
 
 PRZYKŁADOWY KOD:
-```
+```c++
 #include <iostream>
 #include <cstdlib>
 
@@ -387,7 +387,7 @@ Przekazywanie argumentów przez referencję jest łatwiejsze, ponieważ nie trze
 
 W funkcji tworzymy dowolną ilość argumentów wraz z typami. Nazwy argumentów poprzedzone są ampersandem (&). Zmienne wewnątrz funkcji nie są kopią, oznacza to że operując na zmiennych referencyjnych operujemy także na zmiennej oryginalnej z pod której wywołana została funkcja.
 
-```
+```c++
 #include <iostream>
 #include <cstdlib>
 
@@ -417,3 +417,45 @@ int main()
 
 
 ## Obsługa błędów
+
+W trakcie działania programu zawsze może dojść do powstania sytuacji nietypowej. Uniknąć się tego nie da. Można jednak przewidywać iż taka sytuacja wystąpi i się na nią przygotować. W języku C++ wprowadzono mechanizm pozwalający programiście na reagowanie na sytuacje błędne czy nietypowe.
+Gdy taka sytuacja wystąpi, programista może wygenerować wyjątek.
+- Wyjątek (ang. exception) to obiekt pewnej klasy. Wygenerowanie wyjątku polega na przekazaniu obiektu pisującego wyjątek z fragmentu kodu, w którym wystąpił problem, do fragmentu, w którym przewidziano jego obsługę.
+- Wygenerowanie (zgłoszenie) wyjątku powoduje przerwanie wykonywania sprawiającego problemy kodu i przejście do obsługi sytuacji problematycznej. Obsługa ta może znajdować się w innym miejscu kodu.
+- Wyjątek jest obiektem, jego klasa określa typ sytuacji wyjątkowej. Obiekt może w sobie posiadać pola oraz funkcje składowe, pozwalające na sprecyzowanie informacji o zaistniałej sytuacji wyjątkowej.
+
+Polecenia try, throw, catch
+SKŁADNIA:
+ ```c++
+ try 
+ {      
+ <instrukcje>; 
+ throw <obiekt>; 
+ } catch(<obiekt>)  
+ {                        
+ <instrukcje>;
+ }
+ ```
+
+Przykład 1. Polecenie try, throw & catch
+
+```c++
+void main() { 
+try       { 
+throw"tekst z obszaru try"; // wyrzuć tekst       
+} 
+catch(constchar * msg) // złap wyrzucony tekst i przypisz do wskaźnika msg       
+{                                                
+cout << msg << endl;       
+}  
+} 
+```
+
+Do przeczytania:
+https://docs.microsoft.com/pl-pl/cpp/cpp/errors-and-exception-handling-modern-cpp?view=msvc-160
+
+
+ZADANIA:
+1) Do napisania jest program wczytuje od użytkownika dwie liczby naturalne a i b. Program ma wypisać na ekran wynik dzielenia a przez b, a jeśli jest to niemożliwe to ma wypisać odpowiedni komunikat. Dzielenie będzie odbywać się w zbiorze liczb naturalnych, dlatego wynikiem dzielenia nie może być ułamek.
+2) Do napisania jest funkcja, która wczyta od użytkownika linijkę zawierającą ciąg znaków. Program powinien następnie spróbować przekonwertować wprowadzony tekst na liczbę typu int. W trakcie konwersji program może zwrócić dwa wyjątki: Wprowadzony ciąg zawiera nieprawidłowe znaki oraz Wprowadzona liczba jest za duża. Na sam koniec program powinien wypisać skonwertowaną liczbę na ekran.
+ 
