@@ -112,6 +112,8 @@ Sprawdzanie zadań może być dokonywane przy pomocy testów, dlatego używanie 
 # Terminy oddawania
 
 Projekt należy oddać (wgrać na swojego githuba) do **29.10.2021**.
+
+Dodatkowo projekt należy zaliczyć u prowadzącego.
  
 
 | Termin wrzucenia na gita | Maksymalna ocena  |
