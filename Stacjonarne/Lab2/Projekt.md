@@ -53,7 +53,7 @@ Stwórz statyczną bibliotekę dokonująca obliczeń na macierzach. Funkcje powi
 10. `sortRow` - sortowanie tablicy za pomocą sortowania bombelkowego (porównywanie każdej wartości z każdą)
     - tablica
     - ilość kolumn
-11. `sortRowsInMatrix` - sortowanie wszystkich wierszy w macierzy 
+11. `sortRowsInMatrix` - sortowanie wszystkich wierszy w macierzy — posortuj osobno każdy wiersz w macierzy. Sortowanie ma być rosnące
     - macierz a
     - ilość wierszy
     - ilość kolumn
