@@ -107,6 +107,8 @@ Sprawdzanie zadań może być dokonywane przy pomocy testów, dlatego używanie 
 6. Napisaniu zabezpieczenia przed podaniem tekstu zamiast liczb.
 7. Używaniu nazw funkcji, takich, jak zostały podane.
 8. Używaniu typów dla funkcji, takie, jakie zostały podane.
+9. Jeżeli program się nie będzie kompilował, to nie będzie sprawdzany (dostajesz **2.0**).
+10. Jeżeli testy **nie będą się uruchamiać** z powodu złych nazw bądź typów, te podpunkty **nie będą sprawdzane**.
 
 
 # Terminy oddawania
