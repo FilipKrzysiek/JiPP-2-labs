@@ -148,20 +148,20 @@ int main() {
     
     Node n1_1 = n1;
     
-    n1.print();
+    n1.display();
     n1.printValues();
 
-    n1_1.print();
+    n1_1.display();
     n1_1.printValues();
     
     n1.changeValueOn(0, 0);
     n1.changeValueOn(1, 0);
     n1.changeValueOn(1, 0);
 
-    n1.print();
+    n1.display();
     n1.printValues();
 
-    n1_1.print();
+    n1_1.display();
     n1_1.printValues();
     
     system("PAUSE");
