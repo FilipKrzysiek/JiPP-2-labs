@@ -49,6 +49,10 @@ Person::Person(string fisrtName, string lastName, unsigned short brithYear) {
 
 Destruktor jest wywoływany przy niszczeniu, usuwaniu obiektu, nie przyjmuje żadnych parametrów. Kiedy należy go używać?
 
+```c++
+~NazwaKlasy();
+```
+
 &nbsp;
 
 
