@@ -156,6 +156,8 @@ protected:
     
 public:
     void printSubjects();
+    
+    void printAllData();
 };
 ```
 
@@ -167,7 +169,14 @@ Najprościej rzecz ujmując możemy przechowywać inną klasę w innej. Najważn
 ponieważ przepis na klasę będzie brany z klasy bazowej (zadeklarowanego typu). Przykładowa deklaracja:
 
 ```c++
-Figure fig = Circle();
+Figure *fig = new Circle();
+```
+
+Polimorfizm działa tylko i wyłącznie ze wskaźnikami i referencją
+
+```c++
+Rectangle rect = new Rectangle();
+Figure& fig1 = rect
 ```
 
 Klasa Figure jest klasą bazową i posiada przepis na naszą klasę, część metod pokrywa się z klasą Circle.
