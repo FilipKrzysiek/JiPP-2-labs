@@ -113,7 +113,53 @@ private:
 # Dziedziczenie
 
 Dziedziczenie najprościej określić, jako deklarowanie najpierw bardziej ogólnego obiektu, a następnie
-bardziej wyspecjalizowanego. 
+bardziej wyspecjalizowanego.
+
+Przykładowo ogólnym elementem jest osoba, która posiada imię, nazwisko. Bardziej wyspecjalizowanym elementem
+może być student, albo pracownik. Student dodatkowo może posiadać pola numer indeksu, bądź lista ocen, natomiast 
+pracownik stanowisko, wielkość wypłaty. Pracownika da się bardziej wyspecjalizować , ponieważ można rozdzielić to na
+pracownika biurowego oraz nauczyciela. Nauczyciel będzie miał dodatkowe pole listę przedmiotów, a pracownik biurowy 
+dział, bądź dziedzinę, którą się zajmują.
+
+```c++
+class Person{
+protected:
+    string firstName, lastName;
+    
+public:
+    void printPerson();
+};
+
+class Student : public Person{
+protected:
+    string idNumber;
+    vector<unsigned short> grades; //*10
+    
+public:
+    void printGrades();
+    void printIdNumber();
+};
+
+class Worker : public Person{
+protected:
+    unsigned salary;
+    string emplacement;
+    
+public:
+    void printSalary();
+    void printEmplacement();
+};
+
+class Teacher: public Worker {
+protected:
+    vector<string> subjets;
+    
+public:
+    void printSubjects();
+};
+```
+
+Zaimplementuj powyższy kod i sprawdź jakie metody jesteś w stanie wywołać z poszczególnych klas w funkcji main.
 
 # Polimorfizm
 
@@ -143,6 +189,40 @@ int main() {
     cout << "Rectangle area: " << rectangle.getArea() << endl;
 }
 ```
+
+## Zadanie trudniejsze
+
+Stwórz Scheduler, którego zadaniem będzie wywoływanie wszystkich przekazanych zadań co określoną ilość czasu.
+
+Deklaracja klasy:
+
+```c++
+class Scheduler {
+private:
+    vector <Task> tasks;
+    unsigned sleeptime; 
+    unsigned amountOfCall = 0;
+    
+public:
+    Scheduler(unsigned sleeptime);
+    
+    //Ustawianie ilości wykonań (ile razy ma się uśpić w pętli), jeżeli 0, to ma działać w nieskończoność
+    void setAmountOfCall(unsigned amountOfCall);
+    
+    //Dodawanie elementu do listy zadań do wykonania
+    void addTask(Task task);
+    
+    //Uruchomienie działania (usypianie, wykonywanie wszystkich zadań i tak w kółko)
+    void run();
+};
+```
+
+Stwórz klasę Task.
+
+Stwórz klasy potomne, które będą pozwalały na to aby zadanie do wykonania było:
+- funkcja
+- klasa
+- funkcja lambda
 
 
 
