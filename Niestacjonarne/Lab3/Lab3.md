@@ -93,7 +93,7 @@ cout << add<int>(a, b) << endl;
 Szablony również można używać z klasami, bądź przekazywać inne parametry i inną ich ilość.
 
 ```c++
-template<typename type, type value>
+template<typename type, int value>
 class Container {
 private:
     type myVal = value; 
