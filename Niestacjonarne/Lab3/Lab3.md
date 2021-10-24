@@ -208,7 +208,7 @@ Deklaracja klasy:
 ```c++
 class Scheduler {
 private:
-    vector <Task> tasks;
+    vector <Task *> tasks;
     unsigned sleeptime; 
     unsigned amountOfCall = 0;
     
