@@ -184,6 +184,9 @@ Przykładem niech będzie `Figure`.
 
 1. Stwórz klasę `Figure`.
 2. Zadeklaruj metodę virtualną `double getArea()`.
+```c++
+virtual double getArea() = 0; //Przypisujemy 0, aby nie było ciała metody
+```
 3. Stwórz klasę `Circle` z konstruktorem, który przyjmuje promień.
 4. Odziedzicz klasę `Figure`, zaimplementuj `getArea`.
 5. Stwórz klasę `Rectangle` z konstruktorem, który przyjmuje długości boków.
@@ -191,11 +194,11 @@ Przykładem niech będzie `Figure`.
 7. Użyj następującego pliku main
 ```c++
 int main() {
-    Figure circle = Circle(5);
-    Figure rectangle = Rectangle(5, 18);
+    Figure *circle = new Circle(5);
+    Figure *rectangle = new Rectangle(5, 18);
     
-    cout << "Circle area: " << circle.getArea() << endl;
-    cout << "Rectangle area: " << rectangle.getArea() << endl;
+    cout << "Circle area: " << circle->getArea() << endl;
+    cout << "Rectangle area: " << rectangle->getArea() << endl;
 }
 ```
 
