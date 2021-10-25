@@ -83,3 +83,5 @@ Kilka najważniejszych i najczęściej używanych:
 - `tab` - jeżeli piszemy jakąś nazwę, bądź typ zmiennej, to po kliknięciu `tab` dokończy nazwę za nas biorąc pierwszą z podpowiedzi
 - `ctrl + spacja` - wyświetlanie sugestii
 - `ctrl + lpm` - przechodzenie do deklaracji, bądź miejsca użycia zmiennej, funkcji, bądź innego elementu
+- `ctrl + k` - commit
+- `ctrl + shift + k` - push
