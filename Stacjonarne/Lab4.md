@@ -338,10 +338,7 @@ void setFirstName(string firstName) {
 Podsumowując, czym są gettery i settery. <br/>
 Gettery i settery są to metody pozwalające na pobranie i zaktualizowanie wartości pól będących w części prywatnej naszej klasy.
 
-Czy settery to zawsze jedynie ustawianie wartości zmiennej? 
-
-[!NOTE]
-Tekst
+Czy settery to zawsze jedynie ustawianie wartości zmiennej?<sup id="answear1Sourece">[1](#answear1)</sup>
 
 &nbsp;
 
@@ -606,3 +603,16 @@ ZADANIA:
 4. Możesz sprawdzić ile pamięci zajmuje Twój program.
 5. W destruktorze zrób `cout` z dowolnym tekstem i usuń zaalokowaną tablicę.
 
+
+&nbsp;
+
+
+&nbsp;
+
+
+&nbsp;
+
+
+&nbsp;
+
+[1] <b id="answear1"></b> Nie zawsze ustawianie zmiennej, czasem zmiana jednej zmiennej wpływa na wiele innych, więc wtedy aktualizuje też wartości innych zmiennych. [↩](#answear1Sourece)
