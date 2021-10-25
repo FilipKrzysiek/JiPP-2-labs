@@ -52,7 +52,7 @@ add_subdirectory("nazwa katalogu")
 ```
 
 
-# Problemy z git
+## Problemy z git
 
 ### Dodałem niepotrzebne pliki i nie wiem jak je usunąć
 
@@ -67,3 +67,19 @@ Przykładowo chcemy usunąć plik `Test.txt`.
 ```console
 git rm --cached -r Test.txt
 ```
+
+## CLion
+
+### Skróty klawiszowe
+
+Skróty klawiszowe można znaleźć [tutaj](https://www.jetbrains.com/help/clion/mastering-keyboard-shortcuts.html) oraz 
+[tutaj w wersji pdf](https://resources.jetbrains.com/storage/products/clion/docs/CLion_ReferenceCard.pdf)
+
+Kilka najważniejszych i najczęściej używanych:
+- `ctrl + alt + L` - refaktoryzacja kodu (formatowanie, aby był poprawnie i ładnie i czytelnie)
+- `alt + enter` - jeżeli cokolwiek jest podkreślone na jakiś kolor, bądź ma żółte tło, to tam znajdziemy szybkie akcje, co można z tym zrobić, albo jak to naprawić (nie zawsze są wszystkie rozwiązania)
+- `ctrl + p` - pokazywanie parametrów. Jeżeli wywołujemy jakąś funkcję, a nie pamiętamy jej parametrów, to będąc w nawiasie klikamy te przyciski i pokazują się nam parametry, jakie ona przyjmuje
+- `ctrl + q` - pokazywanie dokumentacji, musimy znajdować się na nazwie funkcji, aby zadziałało to poprawnie
+- `tab` - jeżeli piszemy jakąś nazwę, bądź typ zmiennej, to po kliknięciu `tab` dokończy nazwę za nas biorąc pierwszą z podpowiedzi
+- `ctrl + spacja` - wyświetlanie sugestii
+- `ctrl + lpm` - przechodzenie do deklaracji, bądź miejsca użycia zmiennej, funkcji, bądź innego elementu
