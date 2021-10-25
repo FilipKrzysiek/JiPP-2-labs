@@ -51,3 +51,19 @@ add_subdirectory(nazwa_katalogu)
 add_subdirectory("nazwa katalogu")
 ```
 
+
+# Problemy z git
+
+### Dodałem niepotrzebne pliki i nie wiem jak je usunąć
+
+Odpal konsolę, przejdź do głównego katalogu Twojego projektu i użyj komendy:
+
+```console
+git rm --cached -r plik/folder, który chcesz usunąć
+```
+
+Przykładowo chcemy usunąć plik `Test.txt`.
+
+```console
+git rm --cached -r Test.txt
+```
