@@ -277,6 +277,12 @@ ZADANIA:
 
 Dodaj metody dostępowe do zmiennych (pól) klasy.
 
+## 3. Koncepcja nazw
+
+Nazwy klas piszemy wielką literą.
+
+Nawy metod i zmiennych piszemy z małych liter.
+
 ## 4. gettery, setery i ich sens 
 
 Tworząc pola, staramy się je umieszczać w części chronionej naszej klasy (private/protected). Jednakże wtedy nie możemy się odwołać do ich wartości bezpośrednio. Nie możemy odczytać ani zaktualizować ich wartości. Stwórzmy przykładową klasę:
@@ -591,4 +597,10 @@ KlasaCL::~KlasaCL()
 Zasady tworzenia destruktora są podobne do konstruktora. Nazwa destruktora zaczyna się od ~ i nazwy klasy.
 
 ZADANIA:
+
+1. W konstruktorze zrób `cout`, w którym dasz informacje, że nie został wywołany.
+2. Zaalokuj tablicę wybranego typu 1024 elementami (ma mieć rozmiar 1024).
+3. Stwórz metodę pause, w której zatrzymasz program. Możesz tego dokonać za pomocą `system("PAUSE")`, bądź używając `cin`.
+4. Możesz sprawdzić ile pamięci zajmuje Twój program.
+5. W destruktorze zrób `cout` z dowolnym tekstem i usuń zaalokowaną tablicę.
 
