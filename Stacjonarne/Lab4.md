@@ -279,9 +279,11 @@ Dodaj metody dostępowe do zmiennych (pól) klasy.
 
 ## 3. Koncepcja nazw
 
-Nazwy klas piszemy wielką literą.
+Nazwy klas piszemy z dużej litery.
 
 Nawy metod i zmiennych piszemy z małych liter.
+
+Każda klasa powinna być w osobnym pliku.
 
 ## 4. gettery, setery i ich sens 
 
