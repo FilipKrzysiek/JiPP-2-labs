@@ -6,6 +6,8 @@
 
 Celem tego etapu projektu jest stworzenie własnej implementacji kontenera `vector`, na podstawie podanej poniżej deklaracji.
 
+Deklaracja zawiera metody, które są wymagane do zaimplementowania i takie, które można wykonać dodatkowo. Zostały one dodatkowo oznaczone.
+
 ```c++
 template<typename type>
 class Vector {
@@ -17,13 +19,13 @@ private:
 public:
     /**
      * Create empty vector
-     * Stworzenie pustego wektora
+     * Tworzenie pustego wektora
      */
     Vector();
 
     /**
      * Create vector with passed size
-     * Stwórz wektor o podanym rozmiarze
+     * Tworzenie wektor o podanym rozmiarze
      * @param usingDataSize size of creating vector
      */
     Vector(size_t usingDataSize);
@@ -36,7 +38,7 @@ public:
 
     /**
      * Get element from specified index
-     * Pobieranie elementów elementów spod przekazanego indeksu
+     * Pobieranie elementów spod przekazanego indeksu
      * @param index index of element
      * @return reference to element
      */
@@ -51,14 +53,14 @@ public:
 
     /**
      * Get address of last element
-     * Pobieranie adresu ostatniego elementu
+     * Pobieranie adresu ostatniego używanego elementu
      * @return address of last element
      */
     type *back();
 
     /**
-     * Get size of using
-     * Pobieranie rozmiaru
+     * Get size of using data
+     * Pobieranie rozmiaru tablicy (używanej części)
      * @return size of using vector
      */
     size_t size();
@@ -83,11 +85,37 @@ public:
      */
     bool isEmpty();
 
-    /**
+    /** Dodatkowe
      * Delete all elements
      * Usuwanie wszystkich elementów z wektora
      */
     void clear();
+    
+    /** Dodatkowe
+     * Reallocate data to fit allocated data to using data
+     * Realokowanie pamięci, aby dopasować rozmiar zaalokowanej tablicy do używanej
+     */
+    void shrinkToFit();
+    
+    /**
+     * Delete element on passed index
+     * Usuwanie elementu pod wskazanym indeksem
+     * @param size_t index of element to erase
+     */
+    void erase(size_t index);
 };
 ```
+
+#### Pola
+
+Klasa zawiera następujące pola:
+- data - wskaźnik służący do przechowywania danych
+- allocatedDataSize - rozmiar (ilość elementów) zaalokowanej pamięci
+- usingDataSize - rozmiar (ilość) używanych elementów
+
+#### Konstruktory
+
+Podczas tworzenia obiektu powinna być alokowana pamięć do przechowywania elementów. Można zaalokować więcej pamięci, niż jest używane. Przykładowo przy wywołaniu pustego konstruktora można zaalokować pamięć dla 10 elementów i ustawić używaną wielkość (usingDataSize) na 0.
+
+
 
