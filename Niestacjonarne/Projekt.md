@@ -117,5 +117,9 @@ Klasa zawiera następujące pola:
 
 Podczas tworzenia obiektu powinna być alokowana pamięć do przechowywania elementów. Można zaalokować więcej pamięci, niż jest używane. Przykładowo przy wywołaniu pustego konstruktora można zaalokować pamięć dla 10 elementów i ustawić używaną wielkość (usingDataSize) na 0.
 
+## Dodatkowe informacje
+
+Można tworzyć dodatkowe metody bądź pola, jeżeli będzie to potrzebne.
+
 
 
