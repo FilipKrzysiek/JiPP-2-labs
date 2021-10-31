@@ -141,31 +141,35 @@ Użyj nowego pliku main:
 
 ```c++
 int main() {
-    Node n1(83, 5);
-    n1.addNewValue(80);
-    n1.addNewValue(85.1);
-    n1.addNewValue(603.945);
-    
-    Node n1_1 = n1;
-    
-    n1.display();
-    n1.printValues();
-
-    n1_1.display();
-    n1_1.printValues();
-    
-    n1.changeValueOn(0, 0);
-    n1.changeValueOn(1, 0);
-    n1.changeValueOn(1, 0);
-
-    n1.display();
-    n1.printValues();
-
-    n1_1.display();
-    n1_1.printValues();
-    
-    system("PAUSE");
-    return 0;
+   Node n1(83, 5);
+   n1.addNewValue(80);
+   n1.addNewValue(85.1);
+   n1.addNewValue(603.945);
+   
+   Node n1_1 = n1;
+   
+   cout << "n1" << endl;
+   n1.display();
+   n1.printValues();
+   
+   cout << "n1_1" << endl;
+   n1_1.display();
+   n1_1.printValues();
+   
+   n1.changeValueOn(0, 0);
+   n1.changeValueOn(1, 1);
+   n1.changeValueOn(1, 2);
+   
+   cout << "n1" << endl;
+   n1.display();
+   n1.printValues();
+   
+   cout << "n1_1" << endl;
+   n1_1.display();
+   n1_1.printValues();
+   
+   system("PAUSE");
+   return 0;
 }
 ```
 
@@ -215,6 +219,11 @@ cout << "Distance between first and second point is " << triangle.distance(0,1) 
    - `void showTriangleData(Triangle *triangle);`
 11. Powyższe funkcje powinny wykonywać to samo zadanie, czyli wyświetlać wszystkie punkty w trójkącie (metoda `display`)
 12. Używając debugowania, wskaż różnice pomiędzy wywołaniami.  
+
+
+# Rozwiązania
+
+Rozwiązane przykłady można znaleźć w folderze examples
 
 
 
