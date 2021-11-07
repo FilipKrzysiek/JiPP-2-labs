@@ -3,7 +3,7 @@
 ## Przygotowanie
 
 W głównym folderze Twojego repozytorium stwórz folder `simpleCalc`, wewnątrz którego utwórz strukturę 
-projektu dla języka c++ ([ściąga tutaj](Lab1.md#Komendy-cmake)).
+projektu dla języka c++ ([ściąga tutaj](Lab2.md#Komendy-cmake)).
 
 ## Zadanie
 
