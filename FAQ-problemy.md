@@ -68,6 +68,10 @@ Przykładowo chcemy usunąć plik `Test.txt`.
 git rm --cached -r Test.txt
 ```
 
+### Utrzymywanie synchronizacji pomiędzy komputeram
+
+tbd
+
 ## CLion
 
 ### Skróty klawiszowe
@@ -85,3 +89,6 @@ Kilka najważniejszych i najczęściej używanych:
 - `ctrl + lpm` - przechodzenie do deklaracji, bądź miejsca użycia zmiennej, funkcji, bądź innego elementu
 - `ctrl + k` - commit
 - `ctrl + shift + k` - push
+- `F10` - przełączanie pomiędzy plikiem nagłówkowym, a cpp danej klasy
+- `shift + F6` - zmiana nazwy zmiennej, bądź metody (z aktualizacją wszystkich wywołań)
+- `ctrl + F6` - zmiana przekazywanych parametrów do funkcji/metody

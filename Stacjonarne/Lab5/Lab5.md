@@ -80,9 +80,9 @@ public:
    1. numer rejestracyjny
    2. nazwa
    3. ilość miejsc
-   4. tablicę alokowaną dynamicznie przechowująca imię i nazwisko pasażera, bądź informacje o tym, że miejsce jest puste
+   4. tablicę alokowaną dynamicznie. Ma ona przechowywać imię i nazwisko pasażera, bądź informacje o tym, że miejsce jest puste (np „puste”). Alokuj ją w konstruktorze.
    6. markę i typ
-4. Stwórz konstruktor przyjmujący powyższe wartości.
+4. Stwórz konstruktor przyjmujący powyższe wartości. Nie musisz przekazywać listy miejsc, w konstruktorze ustaw, że wszystkie są puste.
 5. Stwórz metodę wypisującą na ekran wszystkie informacje.
 6. Stwórz metodę zmieniającą informację o pasażerze na konkretnym miejscu (pierwszy parametr, to numer miejsca, a drugi informacja o pasażerze).
 7. Stwórz konstruktor kopiujący.
