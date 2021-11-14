@@ -110,3 +110,62 @@ W dalszej części będzie o innych operatorach.
 2. Zaimplementuj pozostałe metody przy użyciu operatorów.
 3. Zaplanuj implementację klasy dla liczb urojonych.
 4. Zaimplementuj klasę dla liczb urojonych.
+
+
+
+# 2. Funkcje zaprzyjaźnione
+
+Funkcja zaprzyjaźniona z klasą to funkcja, która nie jest składnikiem klasy oraz ma dostęp do wszystkich - w tym prywatnych - składników klasy
+Wewnątrz definicji klasy wystarczy umieścić deklarację tej funkcji poprzedzoną słowem friend. Funkcje zaprzyjaźnione pozwalają na dostęp do prywatnych/chronionych składowych klasy. 
+
+To nie funkcja się zaprzyjaźnia - tylko klas adeklaruje przyjaźń z funkcją.
+
+
+```c++
+ class K {
+   //poprzez domniemanie jest private: 
+   friend void fun( K& ); // deklaracja przyjaźni
+   friend void Y::fun( K& ); // deklaracja przyjaźni funkcji składowej klasy 'Y'
+   int x;
+ };
+
+ void fun( K& obiekt ) {
+   obiekt.x = 12; // nie byłoby możliwe to przypisanie bez określenia przyjaźni
+   cout << obiekt.x;
+ }
+```
+
+## Zadania
+
+1. Stwórz klasę `Traingle` (plik nagłówkowy osobno implementacja osobno). Ma zawierać ona następujące pola:
+   - 3 `Node`, które będzie przechowywać informacje o wierzchołkach
+   - nazwa, która będzie przechowywać nazwę trójkąta
+2. Stwórz metodę `display`, która wyświetla informacje o wszystkich wierzchołkach.
+3. Dodaj do funkcji main:
+
+```c++
+Node a, b(5,8), c(1, 16);
+Triangle triangle(a, b, c, "First Triangle");
+
+triangle.display();
+```
+
+4. Sprawdź działanie
+5. Pod deklaracją klasy zadeklaruj funkcję `double pointsDistance(Node a, Node b);`
+6. W klasie `Node` zadeklaruj przyjaźń z funkcją z powyższego punktu
+7. W tej funkcji obliczaj odległość pomiędzy dwoma punktami
+8. W klasie `Triangle` dodaj metodę `double distance(int firstPointIndex, int secondPointIndex);`. Przyjmuje ona 
+   numery wierzchołków, pomiędzy którymi ma być policzona odległość.
+9. Sprawdź działanie, dodając następujące wywołania do funkcji main.
+
+```c++
+cout << "Distance between first and second point is " << triangle.distance(0,1) << endl;
+```
+
+10. Pod klasą `Triangle` stwórz funkcje wraz z jej przeciążeniami:
+   - `void showTriangleData(Triangle triangle);`
+   - `void showTriangleData(Triangle &triangle);`
+   - `void showTriangleData(Triangle *triangle);`
+11. Powyższe funkcje powinny wykonywać to samo zadanie, czyli wyświetlać wszystkie punkty w trójkącie (metoda `display`)
+12. Używając debugowania, wskaż różnice pomiędzy wywołaniami. 
+13. 
