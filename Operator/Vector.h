@@ -26,6 +26,8 @@ public:
 
     Vector operator+(const double &rhs);
 
+    Vector operator!();
+
     friend void print(const Vector &vector);
     friend Vector operator+(const double &lhs, const Vector& rhs);
 };

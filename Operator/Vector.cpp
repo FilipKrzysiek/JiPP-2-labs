@@ -26,3 +26,7 @@ Vector Vector::operator+(const double &rhs) {
     Vector res(x + rhs, y + rhs);
     return res;
 }
+
+Vector Vector::operator!() {
+    return Vector(-1 * x, -1 * y);
+}
