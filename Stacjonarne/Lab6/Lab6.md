@@ -9,6 +9,8 @@
 
 [c++0x](https://cpp0x.pl/artykuly/Inne-artykuly/Przeciazanie-operatorow-w-C++/15)
 
+[c++0x cz2](https://cpp0x.pl/kursy/Programowanie-obiektowe-C++/Podstawy/Operatory/498)
+
 [Dokumentacja MS](https://docs.microsoft.com/pl-pl/cpp/cpp/operator-overloading?view=msvc-160)
 
 
@@ -113,6 +115,14 @@ W dalszej części będzie o innych operatorach.
 
 
 
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+
+
 # 2. Funkcje zaprzyjaźnione
 
 Funkcja zaprzyjaźniona z klasą to funkcja, która nie jest składnikiem klasy oraz ma dostęp do wszystkich - w tym prywatnych - składników klasy
@@ -135,28 +145,78 @@ To nie funkcja się zaprzyjaźnia - tylko klas adeklaruje przyjaźń z funkcją.
  }
 ```
 
+&nbsp;
+
 ## Zadania
+
+Klasę [`Node` znajdziesz tutdaj.](Code)
+
+1. Pod deklaracją klasy `Node` zadeklaruj funkcję `double pointsDistance(Node a, Node b);`
+2. W klasie `Node` zadeklaruj przyjaźń z funkcją z powyższego punktu
+3. W tej funkcji obliczaj odległość pomiędzy dwoma punktami
+4. Sprawdź działanie tej funkcji.
+
+
+&nbsp;
+
+&nbsp;
+
+## Dalej o przeciążeniach operatorów
+
+Zanim zaczniesz analizować dalszą część tego konspektu, upewnij się, że zrobiłeś już operator służący do mnożenia wektora przez skalar.
+Spróbuj użyć zaimplementowanego operatora. Co zauważyłeś? Mnożenie tutaj nie jest przemienne!
+
+Naprawmy to za pomocą funkcji zaprzyjaźnionych. Stwórz funkcję zaprzyjaźnioną, która będzie przeciążać operator.
+
+Szkielet implementacji funkcji:
+
+```c++
+Vector operator*(const double &lhs, const Vector &rhs) {
+    //Implementacja
+}
+```
+
+Dodaj ciało funkcji i zadeklaruj przyjaźń w klasie Vector.
+
+Sprawdź działanie i czy już mnożenie stało się przemienne.
+
+&nbsp;
+
+## Zadania
+
+1. Przeciąż operator `<<`, który będzie zwracał obiekt w postaci ciągu znaków. (Zwracał zmienną z danymi wektora.) Sprawdź, czy zadziała:
+```c++
+Vector v1;
+cout << v1 << endl;
+```
+
+Jeżeli zadziałało gratulacje, w przeciwnym razie dokonaj odpowiednich poprawek (musisz tutaj użyć funkcji zaprzyjaźnionej). Podpowiedź po lewej stronie równania musy być typ `std::ostream & lhs`, a zwracany typ to `std::ostream &`.
+
+&nbsp;
+
+&nbsp;
+
+## Zadania funkcje zaprzyjaźnione część dalsza
 
 1. Stwórz klasę `Traingle` (plik nagłówkowy osobno implementacja osobno). Ma zawierać ona następujące pola:
    - 3 `Node`, które będzie przechowywać informacje o wierzchołkach
    - nazwa, która będzie przechowywać nazwę trójkąta
 2. Stwórz metodę `display`, która wyświetla informacje o wszystkich wierzchołkach.
-3. Dodaj do funkcji main:
+3. Stwórz przeciążenie operatora `<<`, które pozwoli za pomocą `cout` wypisać dane na ekran.
+4. Dodaj do funkcji main:
 
 ```c++
 Node a, b(5,8), c(1, 16);
 Triangle triangle(a, b, c, "First Triangle");
 
 triangle.display();
+cout << triangle << endl;
 ```
 
 4. Sprawdź działanie
-5. Pod deklaracją klasy zadeklaruj funkcję `double pointsDistance(Node a, Node b);`
-6. W klasie `Node` zadeklaruj przyjaźń z funkcją z powyższego punktu
-7. W tej funkcji obliczaj odległość pomiędzy dwoma punktami
-8. W klasie `Triangle` dodaj metodę `double distance(int firstPointIndex, int secondPointIndex);`. Przyjmuje ona 
+5. W klasie `Triangle` dodaj metodę `double distance(int firstPointIndex, int secondPointIndex);`. Przyjmuje ona 
    numery wierzchołków, pomiędzy którymi ma być policzona odległość.
-9. Sprawdź działanie, dodając następujące wywołania do funkcji main.
+6. Sprawdź działanie, dodając następujące wywołania do funkcji main.
 
 ```c++
 cout << "Distance between first and second point is " << triangle.distance(0,1) << endl;
@@ -166,6 +226,5 @@ cout << "Distance between first and second point is " << triangle.distance(0,1) 
    - `void showTriangleData(Triangle triangle);`
    - `void showTriangleData(Triangle &triangle);`
    - `void showTriangleData(Triangle *triangle);`
-11. Powyższe funkcje powinny wykonywać to samo zadanie, czyli wyświetlać wszystkie punkty w trójkącie (metoda `display`)
-12. Używając debugowania, wskaż różnice pomiędzy wywołaniami. 
-13. 
+11. Powyższe funkcje powinny wykonywać to samo zadanie, czyli wyświetlać wszystkie punkty w trójkącie (metoda `display`). Sprawdź, czy można użyć takiego przeciążenia.
+12. Używając debugowania, wskaż różnice pomiędzy wywołaniami.
