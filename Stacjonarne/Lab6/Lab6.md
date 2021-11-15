@@ -1,7 +1,79 @@
 # Laboratorium 6 15/16.11.2021
 
+# Zanim zaczniesz
 
-# 1. Przeładowanie/przeciążanie operatorów
+Zaimplementuj klasę wektor. Pamiętaj o podziale na pliki nagłówkowe i implementacyjne.
+
+```c++
+class Vector{
+private:
+    double x, y;
+    
+public:
+    Vector();
+    
+    Vector(double x, double y);
+    
+    double length();
+};
+```
+
+```c++
+Vector::Vector(): x(0), y(0) {}
+
+Vector::Vector(double x, double y) : x(x), y(y) {}
+
+double Vector::length() {
+        return sqrt(x * x + y * y);
+    }
+
+```
+
+
+&nbsp;
+
+&nbsp;
+
+# 1. Funkcje zaprzyjaźnione
+
+Funkcja zaprzyjaźniona z klasą to funkcja, która nie jest składnikiem klasy oraz ma dostęp do wszystkich - w tym prywatnych - składników klasy
+Wewnątrz definicji klasy wystarczy umieścić deklarację tej funkcji poprzedzoną słowem friend. Funkcje zaprzyjaźnione pozwalają na dostęp do prywatnych/chronionych składowych klasy.
+
+To nie funkcja się zaprzyjaźnia - tylko klas adeklaruje przyjaźń z funkcją.
+
+
+```c++
+ class K {
+   //poprzez domniemanie jest private: 
+   friend void fun( K& ); // deklaracja przyjaźni
+   friend void Y::fun( K& ); // deklaracja przyjaźni funkcji składowej klasy 'Y'
+   int x;
+ };
+
+ void fun( K& obiekt ) {
+   obiekt.x = 12; // nie byłoby możliwe to przypisanie bez określenia przyjaźni
+   cout << obiekt.x;
+ }
+```
+
+&nbsp;
+
+## Zadania
+
+Klasę [`Node` znajdziesz tutdaj.](Code)
+
+1. Pod deklaracją klasy `Node` zadeklaruj funkcję `double pointsDistance(Node a, Node b);`
+2. W klasie `Node` zadeklaruj przyjaźń z funkcją z powyższego punktu
+3. W tej funkcji obliczaj odległość pomiędzy dwoma punktami
+4. Sprawdź działanie tej funkcji.
+
+
+&nbsp;
+
+&nbsp;
+
+
+# 2. Przeładowanie/przeciążanie operatorów
 
 [Dokumentacja](https://en.cppreference.com/w/cpp/language/operators)
 
@@ -119,47 +191,7 @@ int main() {
 
 &nbsp;
 
-
-
-# 2. Funkcje zaprzyjaźnione
-
-Funkcja zaprzyjaźniona z klasą to funkcja, która nie jest składnikiem klasy oraz ma dostęp do wszystkich - w tym prywatnych - składników klasy
-Wewnątrz definicji klasy wystarczy umieścić deklarację tej funkcji poprzedzoną słowem friend. Funkcje zaprzyjaźnione pozwalają na dostęp do prywatnych/chronionych składowych klasy. 
-
-To nie funkcja się zaprzyjaźnia - tylko klas adeklaruje przyjaźń z funkcją.
-
-
-```c++
- class K {
-   //poprzez domniemanie jest private: 
-   friend void fun( K& ); // deklaracja przyjaźni
-   friend void Y::fun( K& ); // deklaracja przyjaźni funkcji składowej klasy 'Y'
-   int x;
- };
-
- void fun( K& obiekt ) {
-   obiekt.x = 12; // nie byłoby możliwe to przypisanie bez określenia przyjaźni
-   cout << obiekt.x;
- }
-```
-
-&nbsp;
-
-## Zadania
-
-Klasę [`Node` znajdziesz tutdaj.](Code)
-
-1. Pod deklaracją klasy `Node` zadeklaruj funkcję `double pointsDistance(Node a, Node b);`
-2. W klasie `Node` zadeklaruj przyjaźń z funkcją z powyższego punktu
-3. W tej funkcji obliczaj odległość pomiędzy dwoma punktami
-4. Sprawdź działanie tej funkcji.
-
-
-&nbsp;
-
-&nbsp;
-
-## Dalej o przeciążeniach operatorów
+## Przeciążenia operatorów razem z funkcjami zaprzyjaźnionymi
 
 Zanim zaczniesz analizować dalszą część tego konspektu, upewnij się, że zrobiłeś już operator służący do mnożenia wektora przez skalar.
 Spróbuj użyć zaimplementowanego operatora. Co zauważyłeś? Mnożenie tutaj nie jest przemienne!
