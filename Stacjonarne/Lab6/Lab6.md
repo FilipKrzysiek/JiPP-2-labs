@@ -88,7 +88,7 @@ public:
 
 Stworzyliśmy deklarację metod według przepisu. Zagadkowy skrót `rhs` oznacza right hand side.
 
-Omówmy ten z operatorem `+`. Nasze dodawanie wektorów będzie zwracać wektor, więc typem zwracanym jest `Vector`, następnie użyliśmy słowa kluczowego `operator` i operatora, którego chcieliśmy użyć, czyli `+`. Następnie tak, jak w zwykłej metodzie przyjęliśmy parametr (u nas jest to prawa strona równania), którym jest statyczna referencja na wektor. Powiedzieliśmy, że ta metoda jest statyczna i zaimplementowaliśmy ją.
+Omówmy przykład z operatorem `+`. Nasze dodawanie wektorów będzie zwracać wektor, więc typem zwracanym jest `Vector`, następnie użyliśmy słowa kluczowego `operator` i operatora, którego chcieliśmy użyć, czyli `+`. Następnie tak, jak w zwykłej metodzie przyjęliśmy parametr (u nas jest to prawa strona równania), którym jest statyczna referencja na wektor. Powiedzieliśmy, że ta metoda jest stała i zaimplementowaliśmy ją.
 
 Jak wywołać to, co stworzyliśmy? Jest kilka sposobów, najprostszy, to tak, jakbyśmy dodawali dwie zmienne.
 
@@ -99,8 +99,6 @@ int main() {
     v3 = v1.operator+(v2);
 }
 ```
-
-W dalszej części będzie o innych operatorach.
 
 &nbsp;
 
