@@ -117,6 +117,8 @@ Wiesz już, jakie jest podstawowe zadanie dziedziczenia. Wyciąganie części ws
 
 # Polimorfizm
 
+Polimorfizm (wielopostaciowość) jest to cecha programowania obiektowego, umożliwiająca różne zachowanie tych samych metod wirtualnych (funkcji wirtualnych) w czasie wykonywania programu.
+
 Najprościej rzecz ujmując możemy przechowywać w obiekcie typu klasy bazowej, obiekt typu klasy dziedziczącej. Czyli takie troszkę oszukiwanie.
 
 ```c++
