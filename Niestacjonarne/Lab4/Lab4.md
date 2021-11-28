@@ -203,13 +203,15 @@ Przekopiuj implementacje poniższej klasy, stwórz tablicę, która będzie prze
 ```c++
 class Student {
 private:
-    double tab[5];
+    double tab[5] = {0,0,0,0,0};
     string firstName;
     string lastName;
     vector<unsigned short> gradesList;
     
 public:
     Student(const string &firstName, const string &lastName) : firstName(firstName), lastName(lastName) {}
+    
+    Student::Student() {}
     
     void setNames(const string &firstName, const string &lastName) {
         this->firstName = firstName;
