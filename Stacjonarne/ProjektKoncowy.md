@@ -42,3 +42,4 @@ Interfejs użytkownika można zrobić używając:
    2. Wybieranie tematu projektu - 13.12
 2. Konsultowanie się w temacie projektu, pomoc itp do 16.01
 3. Oddawanie im wcześniej, tym lepiej, ale nie później niż do końca semestru (30.01)
+4. Projekty oddane w sesji będą oceniane maksymalnie na 4.0

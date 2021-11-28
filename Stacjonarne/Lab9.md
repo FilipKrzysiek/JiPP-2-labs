@@ -1,7 +1,3 @@
-# Laboratorium 7 (29/30.11.2021)
-
-Celem tego laboratorium jest zapoznanie się z tematyką przechowywanie obiektów w tablicy, konwersjami, szablonami i klasami wirtualnymi.
-
 ## Szablony
 
 Język c++ wymaga od nas zawsze deklarowania typów obiektów, jest to plusem, ale i niestety zarazem minusem.
@@ -46,9 +42,9 @@ private:
 ### Zadania
 
 1. Stwórz klasę przechowującą x elementów typu przekazanego przez szablon. Klasa mw:
-   - W konstruktorze przyjmować ilość elementów, które będzie przechowywać
-   - Posiadać metodę do odczytywania wartości na podanym indeksie
-   - Ustawiania wartości na podanym indeksie
-   - Pobieranie wielkości tablicy
+    - W konstruktorze przyjmować ilość elementów, które będzie przechowywać
+    - Posiadać metodę do odczytywania wartości na podanym indeksie
+    - Ustawiania wartości na podanym indeksie
+    - Pobieranie wielkości tablicy
 2. Sprawdź, czy działa powyższa klasa.
-3. Stwórz 
+3. Stwórz funkcję wypisującą na ekran rozmiar typu przekazanego przez szablon. Do sprawdzania rozmiaru służy `sizeof`.
