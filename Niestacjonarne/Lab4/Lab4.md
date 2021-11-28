@@ -198,7 +198,7 @@ for(int i = 0; i < 5, ++i) {
 
 ### Zadanie 1
 
-Przekopiuj implementacje poniższej klasy, stwórz tablicę, która będzie przechowywać 5 obiektów, wypełnij różnymi danymi te klasy. Następnie zapisz je do pliku w trybie binarnym i później wczytaj. Sprawdź czy wszystkie dane zostały poprawnie zapisane.
+Przekopiuj implementacje poniższej klasy, stwórz tablicę, która będzie przechowywać 5 obiektów, wypełnij różnymi danymi te klasy. Następnie zapisz je do pliku w trybie binarnym i później wczytaj. Zapisu dokonaj w funkcji main zapisując obiekt, nie twórzy metody w klasie, która będzie to zapisywać. Sprawdź czy wszystkie dane zostały poprawnie zapisane.
 
 ```c++
 class Student {
@@ -249,7 +249,7 @@ Stwórz program, który będzie wczytywał plik csv, w którym są zapisane kole
 - przystanek końcowy
 - operator
 
-Następnie zapisywał w osobnym pliku linie tramwajowe, a w osobnym autobusowe (linie tramwajowe mają 2 cyfry, a autobusowe 3), w takim samym układzie (takie same kolumny, taka sama ich kolejność).
+Następnie zapisywał w osobnym pliku linie tramwajowe, a w osobnym autobusowe (linie tramwajowe mają 1 lub 2 cyfry, a autobusowe 3), w takim samym układzie (takie same kolumny, taka sama ich kolejność).
 
 
 &nbsp;
