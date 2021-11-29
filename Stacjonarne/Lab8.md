@@ -18,7 +18,71 @@ Jeżeli powyższe założenia są spełnione, to można powiedzieć, że mamy do
 
 ### Zadania
 
-1. Stwórz interfejs dla klasy 
+Stwórz aplikację *notes*, w której będziesz mógł zapisywać notatki, bądź listę. Aplikacja ma pozwalać na:
+
+- dodawanie notatek
+- wyświetlanie notatek
+- usuwanie notatek
+- edytowanie notatek
+
+1. Stwórz klasę `Note`, która będzie bazą dla notatek:
+
+**pola**:
+
+- `title` - tytuł notatki
+
+**Metody**:
+
+- `getTitle` - zwracanie tytułu notatki
+- `setTitle` - ustawianie tytułu notatki
+- `getContent` - pobieranie zawartości notatki (virtual)
+- `setContent` - ustawianie zawartości notatki (virtual)
+
+&nbsp;
+
+2. Stwórz klasę `TextNote`, która będzie przechowywać notatki tekstowe:
+
+**pola**:
+
+- `content` - zawartość notatki tekstowej
+
+**metody**:
+
+- `getContent` - pobieranie zawartości notatki
+- `setContent` - ustawianie zawartości notatki
+
+&nbsp;
+
+3. Stwórz klasę `ListNote`, która będzie przechowywać listę:
+
+**pola**:
+
+- `content` - zawartość notatki listowej
+
+**metody**:
+
+- `getContent` - pobieranie zawartości notatki
+- `setContent` - ustawianie zawartości notatki
+
+&nbsp;
+
+4. Stwórz klasę `NoteDirector`, która będzie zarządzać wszystkimi notatkami.
+
+**pola:**
+
+- `notesList` - lista wszystkich notatek
+
+**metody**:
+
+- `addNote` - dodawanie notatek
+- `deleteNote` - usuwanie notatki
+- `editNote` - edytowanie notatki
+- `clearNotesList` - usuwanie wszystkich notatek
+
+Do przechowywania listy notatek użyj `vector`
+
+
+
 
 &nbsp;
 
