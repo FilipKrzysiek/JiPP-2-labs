@@ -87,3 +87,13 @@ Do przechowywania listy notatek użyj `vector`
 &nbsp;
 
 &nbsp;
+
+## Przydatne rzeczy
+
+Pobieranie całej linii przez cin
+
+```c++
+string line;
+getline(cin, line);
+```
+
