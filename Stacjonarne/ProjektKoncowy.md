@@ -22,7 +22,7 @@ Interfejs użytkownika można zrobić używając:
 - widnows visual studio (windowsowe okienka)
 - wxwidgets - dość proste, ale może nie udać się zainstalować
 - gtk - nie wiem, czy działa pod windowsem
-- qt - działa wszezie, nie jest trudne i posiada narzędzie do tworzenia okienek
+- qt - działa wszezie, nie jest trudne i posiada narzędzie do tworzenia okienek ([tutaj można pobrać](https://www.qt.io/download-open-source?hsCtaTracking=9f6a2170-a938-42df-a8e2-a9f0b1d6cdce%7C6cb0de4f-9bb5-4778-ab02-bfb62735f3e5), trzeba się zarejestrować, ale powinno działać)
 - inne, które znalazłem, ale nie testowałem
   - nana
 
