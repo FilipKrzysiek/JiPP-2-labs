@@ -121,5 +121,45 @@ Podczas tworzenia obiektu powinna być alokowana pamięć do przechowywania elem
 
 Można tworzyć dodatkowe metody bądź pola, jeżeli będzie to potrzebne.
 
+&nbsp;
 
+&nbsp;
 
+&nbsp;
+
+## Etap 2
+
+#### Stwórz obsługę plików
+
+Celem tego etapu jest stworzenie obsługi plików dla klasy `Vector`, która będzie umożliwiała zapisywanie i odczytywanie zawartości z dysku.
+
+### Korekta w klasie `Vector`
+
+W klasie `Vector` pola prywatne przenieś do sekcji chronionych (zamień `private`, na `protected`).
+
+### Klasa do obsługi plików
+
+Stwórz nową klasę, która będzie dodawała do klasy `Vector` nowe funkcjonalności, zapisywani i odczytywnaie jej zawartości z pliku. Ma to być dokonywane za pomocą operatorów `<<` i `>>`.
+
+1. Klasa ma się nazywać `VectorFile` i ma dziedziczyć `Vector`.
+2. Ma posiadać w sobie publiczne implementacje dla następujących operatorów:
+   1. `<<` - zapisywanie danych do pliku binarnego
+   2. `>>` - odczytywanie danych z pliku binarnego
+   3. Sam wymyśl, co ma zwracać i przyjmować jako argument ten operator.
+3. Może posiadać inne prywatne pola i metody.
+
+&nbsp;
+
+### Przykładowe użycie
+
+1. Stworzenie `VectorFile`.
+2. Dodanie różnych danych za pomocą metody `push_back`.
+3. Użycie operatora `<<` do zapisania wprowadzonych danych do pliku binarnego.
+4. Zakończenie aplikacji
+5. Uruchomienie aplikacji
+6. wczytanie danych za pomocą operatora `>>` z pliku.
+7. Usunięcie ostatniego rekordu (`popBack`) i dodanie dwóch nowych (`pushback`).
+8. Zapisanie danych do pliku za pomocą operatora `<<`.
+9. Zakończenie aplikacji.
+10. Uruchomienie aplikacji.
+11. Wyświetlenie wszystkich zapisanych danych.
