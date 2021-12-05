@@ -1,4 +1,4 @@
-# Laboratorium 8 (6/7.12.2021)
+# Laboratorium 9 (6/7.12.2021)
 
 Celem tego laboratorium jest zapoznanie się z kontenerami, pętlami foreach oraz iteratorami.
 
@@ -343,6 +343,74 @@ Lista nie będzie szczególnie omawiana, ponieważ jest ona bardzo podobna do ve
 
 Po przeczytaniu o iteratorach popraw przykład `StopExample`.
 
+## Foreach
 
+Pętla foreach w języku C ++, jest to pętla for oparta na zakresie. Została wprowadzona w C ++ 11. Ten typ struktury pętli for ułatwia przechodzenie przez iterowalny zestaw danych. Czyni to poprzez eliminację procesu inicjalizacji i przechodzenie przez każdy element, a nie przez iterator. Zagłębmy się więc w odpowiednią strukturę pętli foreach.
 
+### Działanie pętli foreach w C++
+
+Pętla for-each iteruje po elementach tablic, wektorów lub dowolnych innych zestawów danych. Przypisuje wartość bieżącego elementu do iteratora zmiennej zadeklarowanego wewnątrz pętli. Przyjrzyjmy się bliżej składni:
+
+```c++
+for(typ nazwa_zmiennej : tablica/nazwa_wektora)
+{
+    instrukcje petli
+    ...
+}
+```
+
+Jak możemy zobaczyć:
+
+- Podczas inicjalizacji pętli deklaracja zmiennej elementarnej jest tą częścią, w której musimy zadeklarować zmienną, która będzie iterować po tablicy lub wektorze. Tutaj typem jest typ danych zmiennej nazwa_zmiennej
+- Nazwa tablicy/wektora to nazwa odpowiedniego zestawu danych, po którym będzie iterowana pętla,
+- Instrukcje pętli to różne operacje, które użytkownik może wykonać na odpowiednich elementach za pomocą zmiennej iteracyjnej.
+
+Uwaga: Sugeruje się, aby typ danych zmiennej był taki sam jak w tablicy lub wektorze. Jeśli typ danych nie jest taki sam, elementy zostaną rzutowane na typ, a następnie zapisane w zmiennej.
+
+Przykłady pętli foreach
+
+1. Przykład pętli foreach dla tablic w C++
+Poniższy kod ilustruje użycie pętli for-each w C++
+
+```c++
+#include<iostream>
+using namespace std; 
+int main() 
+{ 
+    int arr[]={1,2,3,4,5};   //inicjalizacja tablicy
+    cout<<"Elementy: ";
+    for(int i : arr)
+    {
+        cout<<i<<" ";
+    }
+    return 0;
+}
+```
+Sprawdź wynik działania kodu.
+
+Rozłóżmy kod i spójrzmy na niego linijka po linijce:
+
+- Tablica arr[] jest inicjowana pewnymi wartościami {1 , 2 , 3 , 4 , 5}
+- Wewnątrz struktury pętli „i” jest zmienną, która przechowuje wartość bieżącego elementu tablicy
+- arr to nazwa tablicy, która służy również jako adres bazowy odpowiedniej tablicy
+- Jak widać, wypisanie „i” dla każdej iteracji daje nam odpowiednie elementy tablicy w przeciwieństwie do indeksów tablicy w przypadku normalnej pętli for
+
+Uwaga: podczas deklarowania zmiennej „i” moglibyśmy również użyć typu danych auto zamiast int. Gwarantuje to, że typ zmiennej jest dedukowany z typu tablicy i nie występują konflikty typów danych.
+
+Na przykład:
+```c++
+#include<iostream>
+using namespace std; 
+int main() 
+{ 
+    int array[]={1,4,7,4,8,4};
+    cout<<"Elementy: ";
+    for(auto var : array)
+    {
+        cout<<var<<" ";
+    }
+    return 0;
+}
+```
+Pętla foreach - automatyczny typ danych
 
