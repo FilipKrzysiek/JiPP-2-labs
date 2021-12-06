@@ -414,3 +414,337 @@ int main()
 ```
 Pętla foreach - automatyczny typ danych
 
+2. Przykład pętli foreach dla wektorów w C++
+Poniższy kod ilustruje użycie pętli for-each do iteracji po wektorze
+
+```c++
+#include<iostream>
+#include<vector>
+using namespace std; 
+int main() 
+{ 
+    vector<int> vec={11,22,33,44,55,66};
+    cout<<"Elementy: ";
+    for(auto var : vec)
+    {
+        cout<<var<<" ";
+    }
+    return 0;
+}
+```
+
+Pętla for-each dla wektora działa w taki sam sposób, jak w przypadku tablicy. Ponadto jedyne różnice to deklaracja wektora, inicjalizacja i różne operacje, które można na nim wykonać.
+
+Zalety i wady pętli foreach w C++
+1. Zalety pętli foreach
+Eliminuje możliwość błędów i sprawia, że kod jest bardziej czytelny.
+Łatwe do wdrożenia
+Nie wymaga wstępnej inicjalizacji iteratora
+2. Wady pętli foreach
+Nie można uzyskać bezpośredniego dostępu do odpowiednich indeksów elementów
+Nie można przejść elementów w odwrotnej kolejności
+Nie pozwala użytkownikowi pominąć żadnego elementu, gdy przechodzi on przez każdy z nich
+
+
+Wniosek
+Pętla foreach w C++ ma swoje wady i zalety. Kod jest łatwy do odczytania, ale ogranicza niektóre działania oferowane przez normalną pętlę for. W związku z tym całkowicie zależy od użytkownika, co chce, aby pętla wykonała i odpowiednio wybrać.
+
+## Iteratory
+
+Iteratory to w zasadzie obiekty, które pomagają programistom uzyskać dostęp do elementów danych z kontenerów. Wskazuje na określoną pozycję indeksu (adres pamięci) kontenera Standard Template Library i umożliwia dostęp do elementu danych w tej pozycji.
+
+Składnia:
+```
+container-name<data-type>::iterator iterator-name
+```
+
+Przykład:
+```
+list<int>::iterator A;
+```
+
+W ten sposób iteratory pomagają nam poruszać się i przechodzić przez elementy kontenerów.
+
+### Rodzaje iteratorów w C++
+Na początkowym etapie Iteratory i wskaźniki mogą być podobne do Ciebie pod względem funkcjonalności. Ale pod koniec poznasz różnice między iteratorem a wskaźnikiem w C++.
+
+Iteratory działają inaczej niż wskaźniki. Poniżej typy iteratorów, które oferują różne funkcje:
+
+- Iterator wejściowy
+- Iterator wyjściowy
+- Iterator do przodu
+- Iterator dwukierunkowy
+- Iterator o dostępie swobodnym
+
+### Input Iterator
+Input iterator jest podstawowym typem iteratora, który służy wyłącznie do przechodzenia przez elementy kontenera.
+
+Pomaga nam poruszać się po elementach kontenera, ale nie daje nam dostępu do modyfikacji wartości danych kontenera.
+
+Poniżej znajduje się lista operatorów, których można używać wraz z iteratorami wejściowymi:
+
+Operator dereferencji (*)
+Operator przyrostu (++)
+Równe operatorowi (==)
+Nie równa się operatorowi (!=)
+
+
+Przykład:
+
+```c++ 
+#include <iostream> 
+#include <list> 
+using namespace std; 
+int main() 
+{ 
+    list<int> li= { 10, 20, 42, 50, 75 }; 
+ 
+ 
+    list<int>::iterator x; 
+    cout<<"Wynik: ."<<endl;
+ 
+    for (x = li.begin(); x != li.end(); x++) { 
+         
+        cout << (*x) << " "; 
+    } 
+    return 0; 
+} 
+```
+
+W powyższym fragmencie kodu użyliśmy listy jako kontenera i zadeklarowaliśmy „x” jako iterator tej listy „li”. Funkcje begin() i end() służą do wskazywania pierwszej i ostatniej pozycji kontenera. Iterator przemierza listę w kierunku do przodu (w górę).
+
+Przetestuj powyższy kod
+
+### Output iterator
+
+Output iterator są komplementarne do iteratorów wejściowych, tj. są przeciwne względem siebie pod względem funkcjonalności.
+
+Można ich używać do przypisywania i manipulowania wartościami elementów danych kontenera. Ale nie można ich używać do uzyskiwania dostępu lub przechodzenia przez elementy kontenera.
+
+Poniżej znajduje się lista operatorów, których można używać wraz z iteratorami wyjścia:
+
+Operator wyłuskiwania (* , ->)
+Operator przyrostu (++)
+Równe operatorowi (==)
+Nie równa się operatorowi (!=)
+
+Przykład:
+
+```c++
+#include <iostream> 
+#include <list> 
+using namespace std; 
+int main() 
+{ 
+    list<int> li= { 10, 20, 42, 50, 75 }; 
+ 
+ 
+    list<int>::iterator x; 
+    cout<<"Wynik: "<<endl;
+ 
+    for (x = li.begin(); x != li.end(); x++) { 
+//iterator wyjścia do zmiany lub przypisania nowych wartości do wszystkich
+// elementów listy
+        *x = 4;
+    } 
+    for (x = li.begin(); x != li.end(); x++) { 
+//używanie iteratora wejściowego do przechodzenia przez listę
+        cout << (*x) << " "; 
+    } 
+     
+    return 0; 
+} 
+
+```
+Jak widać powyżej, przypisaliśmy wartość = 4 wszystkim elementom kontenera za pomocą iteratora wyjścia
+
+Sprawdź działanie kodu
+
+
+### Bi-directional Iterator
+
+Iterator dwukierunkowy jest dość podobny do iteratora wejściowego. Jedyna różnica polega na tym, że iterator dwukierunkowy może przemierzać elementy w obu kierunkach, tj. do przodu i do tyłu (wstecz).
+
+Poniżej znajduje się lista operatorów, których można używać wraz z iteratorami wejściowymi:
+
+Operator wyłuskiwania (* , ->)
+Operator przyrostu (++)
+Równe operatorowi (==)
+Nie równa się operatorowi (!=)
+Operator dekrementacji (–)
+
+Przykład:
+
+```c++
+#include <iostream> 
+#include <list> 
+using namespace std; 
+int main() 
+{ 
+    list<int> li= { 10, 20, 42, 50, 75 }; 
+ 
+ 
+    list<int>::iterator x; 
+    cout<<"Przejście po elementach listy do przodu."<<endl;
+ 
+     
+    for (x = li.begin(); x != li.end(); x++) { 
+//używanie iteratora wejściowego do przechodzenia przez listę
+        cout << (*x) << " "; 
+    } 
+  cout<<endl;
+    cout<<"Przechodzenie przez elementy listy w kierunku wstecznym"<<endl;
+ 
+  for (x=li.end();x!=li.begin();--x) 
+    { 
+        if (x != li.end()) 
+        { 
+            cout << (*x) << " "; 
+        } 
+    } 
+    cout << (*x); 
+     
+    return 0; 
+} 
+```
+
+Sprawdź działanie kodu.
+
+### Forward Iterator
+
+Forward Iterator może być określany jako kombinacja odpowiednio iteratora wejścia i wyjścia. Pozwala nam na modyfikację wartości pozycji danych kontenerów, a także przechodzenie przez elementy kontenera.
+
+Ale w przeciwieństwie do iteratora dwukierunkowego, forward iterator nie pozwala na przechodzenie elementów w kierunku wstecznym.
+
+Poniżej znajduje się lista operatorów, których można używać wraz z iteratorami wejściowymi:
+
+Operator wyłuskiwania (* , ->)
+Operator przyrostu (++)
+Równe operatorowi (==)
+Nie równa się operatorowi (!=)
+
+Przykład:
+```c++
+#include <iostream> 
+#include <list> 
+using namespace std; 
+int main() 
+{ 
+    list<int> li= { 10, 20, 42, 50, 75 }; 
+ 
+ 
+    list<int>::iterator x; 
+    cout<<"Przejście po elementach lsty"<<endl;
+  for (x = li.begin(); x != li.end(); ++x) { 
+         
+        cout << (*x) << " "; //używanie iteratora wejściowego do przechodzenia przez listę
+    } 
+     
+ 
+    for (x = li.begin(); x != li.end(); x++) {
+// użycie iteratora wyjścia do zmiany lub przypisania nowych wartości do wszystkich
+// elementów listy
+                  *x = 4;   
+    } 
+  cout<<endl;
+  cout<<"Traversing elements of the list after assigning a new value to the list.."<<endl;
+    for (x = li.begin(); x != li.end(); ++x) { 
+         
+        cout << (*x) << " "; //używanie iteratora wejściowego do przechodzenia przez listę
+    } 
+     
+    return 0; 
+} 
+```
+Sprawdź działanie kodu
+
+### Random-Access Iterator
+
+Iteratory o dostępie swobodnym umożliwiają użytkownikom dostęp do elementów danych z dowolnego losowego indeksu/pozycji w kontenerze. Ponadto zawiera wszystkie właściwości kontenera dwukierunkowego.
+
+Ponadto iteratory o dostępie swobodnym mają dostęp do odejmowania i dodawania wskaźników ze względu na losowy dostęp do elementów danych.
+
+
+Operacje wykonywane przez Iteratory w C++
+
+Poniżej przedstawiono niektóre z podstawowych i najczęściej używanych funkcji do manipulowania elementami danych za pomocą iteratorów:
+
+- begin(): Ta metoda zwraca początkowy/początkowy indeks elementów danych w kontenerze.
+- end(): Zwraca indeks końcowy elementów danych w kontenerze.
+- prev(int): Zwraca nowy iterator, który wskazuje element danych, który jest obecny przed pozycją wymienioną w parametrze funkcji.
+- next(int): Zwraca nowy iterator, który wskazuje na element danych, który jest obecny po pozycji wymienionej w parametrze funkcji.
+- inserter(container, int): Ta funkcja dodaje/wstawia wartość w określonym indeksie lub pozycji w kontenerze.
+- Advance(int): Zwiększa się o liczbę określoną w parametrze i wskazuje element danych określony w tym indeksie.
+
+Przykład:
+```c++
+#include <iostream> 
+#include <list> 
+using namespace std; 
+int main() 
+{ 
+    list<int> li= {10, 20, 42, 50, 75}; 
+    list<int>::iterator x; 
+   
+    cout<<"Przejście po elementach listy do przodu "<<endl;
+ 
+     
+    for (x = li.begin(); x != li.end(); x++) { 
+         
+        cout << (*x) << " "; //używanie iteratora wejściowego do przechodzenia przez listę
+    } 
+    cout<<endl;
+   
+list<int>::iterator ee = li.begin(); 
+       
+    advance(ee, 3); 
+    cout << "Element wskazywany przez iterator po użyciu metody Advance():"; 
+    cout << *ee << " "; 
+cout<<endl;
+list<int>::iterator A = li.begin(); 
+list<int>::iterator B = li.end(); 
+      
+   auto aa = next(A, 2); 
+       
+     
+   auto  bb = prev(B, 2); 
+   
+   cout << "Element wskazany za pomocą next() to : "; 
+    cout << *aa << " "; 
+    cout << endl; 
+       
+    cout << "Element wskazany za pomocą prev() to : "; 
+    cout << *bb << " "; 
+    cout << endl; 
+     
+    return 0; 
+} 
+```
+
+Sprawdź działanie kodu.
+
+
+Zalety iteratorów w C++
+Łatwość programowania: przy pomocy iteratorów nie musimy prowadzić konta o różnej wielkości kontenera, dzięki czemu możemy łatwo przejść przez kontener za pomocą metod begin() i end().
+Wysoki poziom ponownego wykorzystania kodu.
+Dynamicznie dodawanie lub usuwanie elementu danych z kontenera.
+
+
+
+Zadania:
+1) Użyj iteratora, aby zamienić każdy element ciągu znakowego na wielką literę.
+2) Odtwarzacz muzyki. Powinien mieć obsługiwane następujące funkcje:
+
+Utwórz listę odtwarzania, korzystając z wielu utworów.
+Dodaj utwory do listy odtwarzania.
+Usuń utwór z listy odtwarzania.
+Odtwarzaj utwory w pętli (w tym ćwiczeniu wszystkie utwory zostaną wydrukowane raz).
+
+Kroki, aby wykonać ćwiczenie:
+- Najpierw zaprojektuj podstawową strukturę, która obsługuje cykliczną reprezentację danych.
+- Następnie zaimplementuj w strukturze funkcje wstawiania i usuwania, aby obsługiwać różne operacje.
+- Musimy napisać niestandardowy iterator. To trochę trudne. Ważne jest, aby upewnić się, że jesteśmy w stanie przejść przez kontener przy użyciu podejścia opartego na zakresie dla pętli. Stąd begin() i end() powinny zwracać różne adresy, chociaż struktura jest cykliczna.
+- Po zbudowaniu kontenera zbuduj na nim opakowanie, które będzie przechowywać różne utwory na liście odtwarzania i wykonywać odpowiednie operacje, takie jak następny, poprzedni, drukuj wszystko, wstawiaj i usuwaj.
+
+
+
