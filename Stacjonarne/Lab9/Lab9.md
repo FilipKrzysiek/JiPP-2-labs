@@ -379,7 +379,7 @@ int main()
 { 
     int arr[]={1,2,3,4,5};   //inicjalizacja tablicy
     cout<<"Elementy: ";
-    for(int i : arr)
+    for(int& i : arr)
     {
         cout<<i<<" ";
     }
@@ -405,7 +405,7 @@ int main()
 { 
     int array[]={1,4,7,4,8,4};
     cout<<"Elementy: ";
-    for(auto var : array)
+    for(auto& var : array)
     {
         cout<<var<<" ";
     }
@@ -414,7 +414,7 @@ int main()
 ```
 Pętla foreach - automatyczny typ danych
 
-2. Przykład pętli foreach dla wektorów w C++
+2. Przykład pętli for-each dla wektorów w C++
 Poniższy kod ilustruje użycie pętli for-each do iteracji po wektorze
 
 ```c++
@@ -425,7 +425,7 @@ int main()
 { 
     vector<int> vec={11,22,33,44,55,66};
     cout<<"Elementy: ";
-    for(auto var : vec)
+    for(auto& var : vec)
     {
         cout<<var<<" ";
     }
