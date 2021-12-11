@@ -43,3 +43,30 @@ Interfejs użytkownika można zrobić używając:
 2. Konsultowanie się w temacie projektu, pomoc itp do 16.01
 3. Oddawanie im wcześniej, tym lepiej, ale nie później niż do końca semestru (30.01)
 4. Projekty oddane w sesji będą oceniane maksymalnie na 4.0
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+## Bazy danych
+
+Używana w projekcie baza danych nie musi być pełnoprawną bazą danych. Tematyka baz danych będzie poruszana dopiero na późniejszych etapach Waszej edukacji.
+
+W projekcie możesz użyć plików zamiast pełnoprawnej bazy danych przykładowo: 
+
+- pliki binarne - sam wymyślisz, jak zapisać dane
+- pliki json
+- pliki csv
+- pliki xml
+
+Pamiętaj wszystkie dane nie muszą być przechowywane w jednym pliku, mogą być przechowywane w wielu. Dodatkowo możesz używać bibliotek do ich obsługi. 
+
+&nbsp;
+
+Jeżeli natomiast masz ambicje i chcesz skorzystać z pełnoprawnej bazy danych, to możesz użyć:
+
+- mysql (lub inna sql) - musisz poszukać biblioteki do obsługi
+- mongodb - udostępnia bibliotekę do obsługi
+- sqlite - musisz poszukać biblioteki do obsługi
