@@ -163,3 +163,130 @@ Stwórz nową klasę, która będzie dodawała do klasy `Vector` nowe funkcjonal
 9. Zakończenie aplikacji.
 10. Uruchomienie aplikacji.
 11. Wyświetlenie wszystkich zapisanych danych.
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+# Etap 3
+
+#### Stwórz klasy przechowujące dane
+
+Stwórz klasę:
+
+```c++
+class MCoord
+{
+protected:
+	double *pcoord;
+public:
+	mcoord(double xx, double yy);
+	mcoord() { pcoord = NULL; }
+	~mcoord() { ……………… }
+};
+```
+
+Utwórz klasę node, która publicznie dziedziczy po klasie mcoord:
+
+```c++
+class Node
+{
+int numb;       //numer wierzchołka
+char str[512];  //nazwa wierzchołka
+public:
+node(int nb, char *st, double xx, double yy);
+node();
+…………………
+};
+```
+
+Klasa node ma dodatkowo zawierać:
+
+- przeciążenia operatorów
+  - `=` - przypisywanie
+  - `==` - porównywanie
+  - `<<` i `>>` - obsługa dowolnych strumieni
+- konstruktor kopiujący
+
+
+### Klasa obsługi błędów
+
+Stwórz obsługę błędów, ostrzeżeń i komunikatów. Wszystkie mają być zapisane w jednym pliku.
+
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+# Etap 4
+
+#### Funkcja find
+
+Stwórz szablonową funkcję find służącą do wyszukiwania elementu w tablicy.
+
+```c++
+template <class T, class Key>
+T * find(const T *p_begin, const T *p_end, const Key &k);
+```
+
+Gdzie:
+
+- `T *p_begin` - wskaźnik na pierwszy element tablicy
+- `T *p_end` - pierwszy element po ostatnim elemencie tablicy (pierwszy wolny element tablicy)
+- `Key &k` - klucz przeszukiwania (np. numer wierzchołka).
+
+Zwracane:
+
+- wskaźnik do odnalezionego elementu
+- `NULL` lub `nullptr` (wybierz i konsekwentnie się tego trzymaj) w razie nieznalezienia obiektu
+
+
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+# Etap 5
+
+#### Stwórz interfejs użytkownika (w konsoli za pomocą `cin` i `cout`)
+
+Stwórz aplikację zarządzającą danymi. Będzie ona przechowywać obiekty typu `MCoord` w kontenerze stworzonym w etapie 1.
+Utwórz tekstowy interfejs użytkownika, który będzie działał w pętli i będzie posiadał opcje:
+
+- dodawania obiektu
+- usuwania obiektu
+- wyczyszczenie tablicy obiektów
+- modyfikację obiektu
+- wstawiania obiektu w określone miejsce
+- znalezienia wszystkich obiektów zgodnych z kluczem (numerem wierzchołka)
+- zapisanie danych na dysk
+- odczytanie danych z dysku
+- wyświetlenie danych na ekranie
+- zakończenie działania programu
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+# Uwagi ogólne
+
+Wszystkie dynamiczne alokacje i dealokacje mają być dokonywane za pomocą operatorów `new` i `delete`. Pamiętaj o podziale projektu na pliki `*.cpp` i `*.h`.
+
+Pamiętaj o tworzeniu komentarzy dokumentacyjnych przed funkcjami i metodami.
+
+&nbsp;
+
+**Wyszukiwanie**
+
+Wyszukiwania dokonuj za pomocą stworzonej funkcji find. Szukaj tylko po numerach wierzchołków w tym celu stwórz w klasie 
+`Node` odpowiednie przeciążenie operatora `==`. 
+
+
