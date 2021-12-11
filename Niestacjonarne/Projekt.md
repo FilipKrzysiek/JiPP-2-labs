@@ -287,6 +287,12 @@ Pamiętaj o tworzeniu komentarzy dokumentacyjnych przed funkcjami i metodami.
 **Wyszukiwanie**
 
 Wyszukiwania dokonuj za pomocą stworzonej funkcji find. Szukaj tylko po numerach wierzchołków w tym celu stwórz w klasie 
-`Node` odpowiednie przeciążenie operatora `==`. 
+`Node` odpowiednie przeciążenie operatora `==`.
+
+&nbsp;
+
+&nbsp;
+
+Projekt stworzony na podstawie materiałów: dr hab. inż. Sergiy Fialko (http://torus.uck.pk.edu.pl/~fialko/)
 
 
