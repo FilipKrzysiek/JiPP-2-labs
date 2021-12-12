@@ -70,3 +70,17 @@ Jeżeli natomiast masz ambicje i chcesz skorzystać z pełnoprawnej bazy danych,
 - mysql (lub inna sql) - musisz poszukać biblioteki do obsługi
 - mongodb - udostępnia bibliotekę do obsługi
 - sqlite - musisz poszukać biblioteki do obsługi
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+## Przykładowe tematy
+
+1. Aplikacja do zarządzania:
+   1. Pracownikami
+   2. Liniami
+   3. Wydatkami
+2. 
