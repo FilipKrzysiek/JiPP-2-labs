@@ -79,8 +79,35 @@ Jeżeli natomiast masz ambicje i chcesz skorzystać z pełnoprawnej bazy danych,
 
 ## Przykładowe tematy
 
-1. Aplikacja do zarządzania:
+(podpunkty to jest podobny temat, tyle, że różni się szczegółami)
+
+1. Aplikacja do zarządzania (dodawanie wpisów, wyświetlanie, edytowani, usuwanie, jakieś proste analizy):
    1. Pracownikami
-   2. Liniami
-   3. Wydatkami
-2. 
+   2. Liniami komunikacji
+   3. Spedycją
+   4. Wydatkami
+2. Proste gry
+3. Implementacja własnego kontenera, którego zawartość można zapisywać na dysk i dodatkowe proste zarządzanie (dodaj, usuń, wyświetl, edytuj)
+4. Aplikacja do edytowania plików
+   1. csv
+   2. json
+   3. xml
+   4. inne
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+## Skąd czerpać wiedzę
+
+Lista książek z opisami dostępna jest [tutaj](https://coders.school/resources/). Zanim poszukasz w bibliotece, czy też księgarni, sprawdź, czy nie ma nowszego wydania.
+
+Najważniejszą rzeczą, na którą warto zwracać uwagę, to jest **wersja c++**, która jest omawiana. Absolutne minimum, to **c++11**, wprowadził on bardzo dużą rewolucję.
+
+Książki, które miałem w ręce:
+
+- Wprowadzenie do wzorców projektowych C++ i Qt ([biblioteka](https://koha.biblos.pk.edu.pl/cgi-bin/koha/opac-detail.pl?biblionumber=10132&query_desc=kw%2Cwrdl%3A%20Qt)) - Opisuje c++ i wprowadza w programowanie GUI przy użyciu qt.
+- C++ : podróż po języku dla zaawansowanych ([biblioteka](https://koha.biblos.pk.edu.pl/cgi-bin/koha/opac-detail.pl?biblionumber=140033)) - poruszane są wszystkie tematy, leczy jest pisana dość zaawansowanym językiem. Wspomina o nowościach wprowadzanych w c++ 20.
+- C++20 biblioteka techniczna : problemy i rozwiązania ([biblioteka](https://koha.biblos.pk.edu.pl/cgi-bin/koha/opac-detail.pl?biblionumber=146870)) - omawia podobnie, jak poprzednia wszystkie tematy, lecz mam wrażenie, że wdaje się zbyt bardzo w szczegóły. Jest napisana w formie problem, rozwiązanie.
