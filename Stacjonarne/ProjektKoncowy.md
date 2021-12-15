@@ -93,6 +93,8 @@ Jeżeli natomiast masz ambicje i chcesz skorzystać z pełnoprawnej bazy danych,
    2. json
    3. xml
    4. inne
+5. Aplikacja kalendarz
+6. Aplikacja wspomagająca zarządzanie pociągami na stacji (dodawanie pociągu, wyszukiwanie danych w rozkładzie jazdy (skąd dokąd, na który wyjazd, czas zatrzymania, czas odjazdu), zapisywanie statusu (zapowiedziany, nadjeżdża, nadjeżdża bez postoju, postój handlowy, postój, odjeżdża), opis, edytowanie statusu, danych, usuwanie pociągu).
 
 &nbsp;
 
