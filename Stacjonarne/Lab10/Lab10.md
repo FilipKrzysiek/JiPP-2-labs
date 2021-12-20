@@ -71,14 +71,54 @@ int main() {
 ```
 
 
-Przeciążanie szablonów
+**Przeciążanie szablonów**
+
 W programie może obok siebie istnieć mając tę samą nazwę:
 - kilka szablonów funkcji – byle produkowały funkcje o odmiennych argumentach,
 - funkcje, o argumentach takich, że mogłyby zostać wyprodukowane przez któryś z szablonów (funkcje specjalizowane),
 - funkcje o argumentach takich, że nie mógłby ich wyprodukować żaden z istniejących szablonów (zwykłe przeładowanie).
 
-Szablony klas
+&nbsp;
+
+**Szablony klas**
+
 Szablony klas jest podobny do szablonu funkcji. Szablony klas są przydatne, gdy klasa definiuje coś, co jest niezależne od typu danych. Może być przydatny dla klas takich jak LinkedList, BinaryTree, Stack, Queue, Array itp.
+
+```c++
+template<typename type1, typename type2, typename type3>
+class Triple {
+private:
+    type1 variable1;
+    type2 variable2;
+    type3 variable3;
+    
+ public:
+    Triple(type1 variable1, type2 variable2, type3 variable3): variable1(variable1), variable2(variable2), variable3(variable3) {}
+    
+    type1 getVariable1() {
+        return variable1;
+    }
+    
+    type2 getVariable2() {
+        return variable2;
+    }
+    
+    type3 getVariable3() {
+        return variable3;
+    }
+};
+```
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+## Ograniczanie
+
+Szablony dają ogromne możliwości, lecz musimy też czasem zadbać o to aby  
+
 
 &nbsp;
 
@@ -93,9 +133,26 @@ Szablony klas jest podobny do szablonu funkcji. Szablony klas są przydatne, gdy
    2. max(a, b)
    3. printArray(*a)
    4. printMatrix(**a)
-2. Stwórz klasę Vector przy użyciu szablonu
+2. Stwórz klasę Array przy użyciu szablonu. Jako pierwszy argument szablonu, będzie przyjmować typ, a jako drugi wielkość tablicy.
+3. (Trudniejsze) Stwórz klasę Vector przy użyciu szablonu. Będzie ona zachowywać się jak klasa `vector` z biblioteki standardowej. Zaimplmenetuj tylko wybrane funkcje:
+   1. konstruktor
+      1. BEZ PARAMETRÓW
+      2. zawierający tylko rozmiar
+   2. Dodawanie elementu na koniec tablicy
+   3. usuwanie ostatniego elementu
+   4. pobieranie wskaźnika do tablicy z danymi
 
 &nbsp;
+
+&nbsp;
+
+&nbsp;
+
+### Koncepty
+
+###### Ciut o nowościach, sam doczytaj, jeżeli Cię to zainteresowało
+
+C++ 20 wprowadza koncepty, czyli nazwane zbiory wymagań dla szablonu. Muszą one być spełnione w czasie kompilacji. 
 
 &nbsp;
 
