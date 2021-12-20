@@ -1,0 +1,1 @@
+add_executable(forwardDeclarations main.cpp function.cpp)

@@ -152,7 +152,7 @@ int main() {
 }
 ```
 
-Powyższy przykład jest też dostępny [tutaj]().
+Powyższy przykład jest też dostępny [tutaj](examples/templateClass).
 
 &nbsp;
 
@@ -162,7 +162,7 @@ Powyższy przykład jest też dostępny [tutaj]().
 
 ## Ograniczanie
 
-Szablony dają ogromne możliwości, lecz w niektórych przypadkach potrzebujemy narzucić ograniczenia. Przykładowo chcemy, aby nasza funkcja działała tylko dla wszystkich liczb całkowitych, daje nam to do wyboru typy: `int`, `short`, `long`, `unsigned` ... . Aby rozwiązać ten problem, możemy skorzystać z forward declarations. Przykład można zobaczyć [tutaj]().
+Szablony dają ogromne możliwości, lecz w niektórych przypadkach potrzebujemy narzucić ograniczenia. Przykładowo chcemy, aby nasza funkcja działała tylko dla wszystkich liczb całkowitych, daje nam to do wyboru typy: `int`, `short`, `long`, `unsigned` ... . Aby rozwiązać ten problem, możemy skorzystać z forward declarations. Przykład można zobaczyć [tutaj](examples/forwardDeclarations). **Ważna uwaga** deklaracja funkcji z szablonem musi być w pliku .h, a implemenrtacja z forward declarations w pliku .cpp. Jeżeli zrobisz inaczej nie będzie to działać poprawnie.
 
 Kolejnym rozwiązaniem tego problemu jest `static_assert`, funkcja, która zwraca błąd podczas kompilacji. Przykład można zobaczyć [tutaj](). 
 
