@@ -15,7 +15,8 @@ Szablony funkcji
 Ogólna postać definicji szablonu funkcji:
 
 ```c++
-template <class type> return type function name(parameter list) {
+template <class type> 
+returnType functionName(parameterList) {
    ...
 } 
 ```
@@ -40,6 +41,17 @@ int main()
   return 0;
 }
 ```
+
+&nbsp;
+
+Nie musimy zawsze wywoływać tych funkcji z podawaniem parametrów, możemy skorzystać z niejawnego konkretyzowania szablonu. Polega ono na dedukowaniu na podstawie przekazanych do funkcji wartości, jakie mają być parametry szablonu. UWAGA!! Nie działa to dla klas.
+
+```c++
+myMax<int>(1, 6); //wywołanie funkcji z jawnym konkretyzowaniem
+myMax(1, 6); //wywołanie funkcji z niejawnym konkretyzowaniem. Typ zostanie wydedukowany na podstawie parametrów, w tym przypadku int 
+```
+
+&nbsp;
 
 Poniżej program do implementacji bubble sort przy użyciu szablonów w C++:
 ```c++
@@ -70,6 +82,7 @@ int main() {
 }
 ```
 
+&nbsp;
 
 **Przeciążanie szablonów**
 
@@ -78,11 +91,32 @@ W programie może obok siebie istnieć mając tę samą nazwę:
 - funkcje, o argumentach takich, że mogłyby zostać wyprodukowane przez któryś z szablonów (funkcje specjalizowane),
 - funkcje o argumentach takich, że nie mógłby ich wyprodukować żaden z istniejących szablonów (zwykłe przeładowanie).
 
+```c++
+template<typename T>
+T addS(T a, T b) {
+    return a + b + cons;
+}
+
+
+template<typename T, int cons>
+T addS(T a, T b) {
+    return a + b + cons;
+}
+```
+
+&nbsp;
+
+**Szablon metod**
+
+Podobnie jak w funkcjach możemy stworzyć szablon dla metod w klasie. Nie musimy wtedy tworzyć szablonu dla całej klasy, wystarczy dla jednej metody. Działa ona na dosłownie takiej samej zasadzie jak dla funkcji.
+
 &nbsp;
 
 **Szablony klas**
 
 Szablony klas jest podobny do szablonu funkcji. Szablony klas są przydatne, gdy klasa definiuje coś, co jest niezależne od typu danych. Może być przydatny dla klas takich jak LinkedList, BinaryTree, Stack, Queue, Array itp.
+
+**UWAGA** klasy z szablonami implementujemy w deklaracji! Jest to najprostsze rozwiązanie.
 
 ```c++
 template<typename type1, typename type2, typename type3>
@@ -107,7 +141,18 @@ private:
         return variable3;
     }
 };
+
+int main() {
+    Triple <string, double, bool>t{"Hello", 5.1, true};
+    cout << t.getVariable1() << endl;
+    cout << t.getVariable2() << endl;
+    cout << t.getVariable3() << endl;
+
+    return 0;
+}
 ```
+
+Powyższy przykład jest też dostępny [tutaj]().
 
 &nbsp;
 
@@ -117,7 +162,9 @@ private:
 
 ## Ograniczanie
 
-Szablony dają ogromne możliwości, lecz musimy też czasem zadbać o to aby  
+Szablony dają ogromne możliwości, lecz w niektórych przypadkach potrzebujemy narzucić ograniczenia. Przykładowo chcemy, aby nasza funkcja działała tylko dla wszystkich liczb całkowitych, daje nam to do wyboru typy: `int`, `short`, `long`, `unsigned` ... . Aby rozwiązać ten problem, możemy skorzystać z forward declarations. Przykład można zobaczyć [tutaj]().
+
+Kolejnym rozwiązaniem tego problemu jest `static_assert`, funkcja, która zwraca błąd podczas kompilacji. Przykład można zobaczyć [tutaj](). 
 
 
 &nbsp;
@@ -131,8 +178,8 @@ Szablony dają ogromne możliwości, lecz musimy też czasem zadbać o to aby
 1. Stwórz funkcję z szablonem (możliwe, że będzie potrzebna zmiana nazwy, aby nie pokrywała się z funkcjami wbudowanymi):
    1. min(a, b)
    2. max(a, b)
-   3. printArray(*a)
-   4. printMatrix(**a)
+   3. printArray(*a) (można dodać drugi parametr będący rozmiarem)
+   4. printMatrix(**a) (można dodać kolejne parametry będące rozmiarami)
 2. Stwórz klasę Array przy użyciu szablonu. Jako pierwszy argument szablonu, będzie przyjmować typ, a jako drugi wielkość tablicy.
 3. (Trudniejsze) Stwórz klasę Vector przy użyciu szablonu. Będzie ona zachowywać się jak klasa `vector` z biblioteki standardowej. Zaimplmenetuj tylko wybrane funkcje:
    1. konstruktor
