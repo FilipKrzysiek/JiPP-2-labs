@@ -161,14 +161,15 @@ Do tej pory pisząc programy w których organizowałeś dane, byłeś zmuszany d
 
 ### Dynamiczne przydzielenie pamięci
 W języku C++ do przydzielania nowego bloku pamięci służy operator new. Jego składnia wygląda następująco:
-```
+```c++
 wskaznik1 = new typ_zmiennej;
 wskaznik2 = new typ_zmiennej[ ilosc_elementow_danego_typu ];
 ```
 
 ### Zwalnianie pamięci przydzielonej dynamicznie
 Zwalnianie pamięci przydzielonej dynamicznie jest jeszcze prostsze od jej przydziału i służy do tego operator delete. Jeśli pamięć dla danych, na które wskazuje zmienna wskaznik została przydzielona bez parametru określającego ilość elementów w tablicy, to usuwana jest następującą składnią:
-```
+
+```c++
 delete wskaznik;
 ```
 
@@ -183,21 +184,21 @@ https://en.cppreference.com/w/cpp/memory
 
 Wskaźnik poprzedzony jest gwiazdką (*) i przechowuje adres pamięci (a nie wartość) zmiennej, na którą wskazuje. Deklarując wskaźnik postępujemy tak jak ze zwykłymi zmiennymi, jednak nazwę wskaźnika poprzedzamy gwiazdką.
 
-```
+```c++
 int liczba; //zmienna liczbowa
 int *wsk; //wskaźnik
 ```
 
 Bardzo ważne jest aby nie korzystać ze wskaźnika który nie wskazuje na żadną zmienną! Prowadzi to zawsze do błędów i niesie ze sobą nieprzewidziane konsekwencje w działaniu programu. 
 
-```
+```c++
 int liczba = 5;
 int *wsk =&telefon;
 ```
 
 Za pomocą operatora pobrania adresu (&) pobrany został adres zmiennej liczba. Za pomocą operatora pobrania adresu (&) pobraliśmy adres zmiennej telefon. Adres zmiennej został przypisany wskaźnikowi wsk. Pamiętaj że gwiazdka przed nazwą wskaźnika to nie operator wyłuskania! Chcąc wyświetlić wartość wskaźnika posłużymy się operatorem wyłuskania czyli gwiazdką ()*.
 
-```
+```c++
 #include <iostream>
 
 using namespace std;
@@ -215,7 +216,7 @@ int main()
 
 Powyższy przykład wyświetli na ekranie wartość zmiennej liczba. Przed wyświetleniem wskaźnika został użyty operator wyłuskania. Pobiera on wartość zmiennej spod adresu ze zmiennej wskaźnikowej. Bez użycia operatora wyłuskania, została by wyświetlona wartość zmiennej wskaźnikowej wsk czyli adres zmiennej liczba:
 
-```
+```c++
 int liczba = 12345;         //zmienna liczbowa
 int *wsk = &liczba;         //przypisanie wskaźnikowi adresu zmiennej liczba
 										         
@@ -230,7 +231,7 @@ Proszę poszukać dlaczego jeżeli nie inicjujemy wartości we wskaźniku, warto
 ## Przypomnienie pętli for
 
 Ćwiczenie ma na celu przypomnienie prostej pętli for. 
-```
+```c++
 Składnia
 for (inicjalizacja; warunek_pętli; krok_pętli)
 {
@@ -246,12 +247,13 @@ Zastanówcie się dlaczego lepiej stosować ++i zamiast i++?
 ## Alokowanie pamięci dla tablic
 
 Aby dobrze poznać tablice dynamiczne należy zrozumieć działanie zwykłych statycznych tablic. Inicjowanie tablicy jest bardzo proste, podczas inicjacji możemy z góry określić elementy jakie zawiera tablica. 
-```
+
+```c++
 int tablica[5] = { 10, 11, 12, 13, 14};
 ```
 
 Ciekawostką może okazać się fakt, że nazwa tablicy jest jednocześnie wskaźnikiem na jej pierwszy element.
-```
+```c++
 int tablica[5] = { 10, 11, 12, 13, 14};
 
 cout << *tablica;   // wyświetli tablica[0];
@@ -260,13 +262,13 @@ cout << tablica;    // wartość wskaźnika, adres pierwszego elementu
 
 Tablice statyczne nie dają nam możliwości decydowania o ich wymiarach podczas działania programu. Oznacza to że musimy znać wielkość tablicy na poziomie tworzenia aplikacji. Kolejną wadą takowych tablic jest fakt, iż generując tablicę dwuwymiarową musi być ona prostokątna.
 
-```
+```c++
 int tablica[2][3];
 ```
 
 Deklarując tablicę dynamiczną należy zadeklarować wskaźnik tego samego typu co elementy tablicy. Następnie rezerwujemy miejsce w pamięci o określonym typie (takim samym jak wskaźnik). Służy do tego rozkaz new. Tablicy dynamicznej używamy tak samo jak zwykłą tablice statyczną, nie trzeba operować wskaźnikami, wskaźniki potrzebne są tylko przy deklaracji. Wynika to z faktu opisanego wyżej - tablica statyczna to też wskaźniki chociaż nie są do końca widoczne.
 
-```
+```c++
 int * tablica = new int[3];
 
 tablica[0] = 11;
@@ -276,7 +278,7 @@ tablica[2] = 13;
 delete [] tablica;
 ```
 Każdy dynamiczny obiekt utworzony podczas działania programu należy na końcu  usunąć poleceniem delete. Przy usuwaniu tablicy dodatkowo dodajemy kwadratowy nawias czyli delete []. Dzięki użyciu tablicy dynamicznej użytkownik ma możliwość decydowania o rozmiarze tablicy podczas działania programu:
-```
+```c++
 int rozmiar;
 
 cout << "Podaj rozmiar tablicy:" << endl;
@@ -438,7 +440,7 @@ Zadanie ma na cedlu przedstawienie i omówienie jak działa przekazywanie tablic
 
 
 Konstrukcja nagłówka funkcji dla tablicy jednowymiarowej
-```
+```c++
 typ_funkcji nazwa(typ_elementów_tablicy nazwa_tablicy[]);
 
 void funkcja(int tablica[10]);
@@ -450,7 +452,7 @@ Nazwa tablicy jest wskaźnikiem na jej pierwszy element. Oznacza to, że przekaz
 
 Program zamieniający wartosci tablicy na ich kwadraty:
 
-```
+```c++
 #include<iostream>
 using namespace std;
  
