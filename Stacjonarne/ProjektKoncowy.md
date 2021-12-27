@@ -110,9 +110,9 @@ Najważniejszą rzeczą, na którą warto zwracać uwagę, to jest **wersja c++*
 
 Książki, które miałem w ręce:
 
-- Wprowadzenie do wzorców projektowych C++ i Qt ([biblioteka](https://koha.biblos.pk.edu.pl/cgi-bin/koha/opac-detail.pl?biblionumber=10132&query_desc=kw%2Cwrdl%3A%20Qt)) - Opisuje c++ i wprowadza w programowanie GUI przy użyciu qt.
-- C++ : podróż po języku dla zaawansowanych ([biblioteka](https://koha.biblos.pk.edu.pl/cgi-bin/koha/opac-detail.pl?biblionumber=140033)) - poruszane są wszystkie tematy, leczy jest pisana dość zaawansowanym językiem. Wspomina o nowościach wprowadzanych w c++ 20.
-- C++20 biblioteka techniczna : problemy i rozwiązania ([biblioteka](https://koha.biblos.pk.edu.pl/cgi-bin/koha/opac-detail.pl?biblionumber=146870)) - omawia podobnie, jak poprzednia wszystkie tematy, lecz mam wrażenie, że wdaje się zbyt bardzo w szczegóły. Jest napisana w formie problem, rozwiązanie.
-- C++ kompendium wiedzy ([biblioteka](https://koha.biblos.pk.edu.pl/cgi-bin/koha/opac-detail.pl?biblionumber=119159)) - biblia do c++ napisana przez jego twórcę
-- Programowanie. Teoria i praktyka z wykorzystaniem C++ ([biblioteka](https://koha.biblos.pk.edu.pl/cgi-bin/koha/opac-detail.pl?biblionumber=144572&query_desc=kw%2Cwrdl%3A%20programowanie%20teoria%20i%20praktyka)) - bardziej zaawansowana książka od poprzedniej, również stworzona przez autora c++ i również jest bardzo gruba
-- Programowanie wieloplatformowe z C++ i wxWidgets 3 ([biblioteka](https://koha.biblos.pk.edu.pl/cgi-bin/koha/opac-detail.pl?biblionumber=136971)) - tworzenie interfejsu graficznego z wykorzystaniem wxWidgets
+- **Wprowadzenie do wzorców projektowych C++ i Qt** ([biblioteka](https://koha.biblos.pk.edu.pl/cgi-bin/koha/opac-detail.pl?biblionumber=10132&query_desc=kw%2Cwrdl%3A%20Qt)) - Opisuje c++ i wprowadza w programowanie GUI przy użyciu qt.
+- **C++ : podróż po języku dla zaawansowanych** ([biblioteka](https://koha.biblos.pk.edu.pl/cgi-bin/koha/opac-detail.pl?biblionumber=140033)) - poruszane są wszystkie tematy, leczy jest pisana dość zaawansowanym językiem. Wspomina o nowościach wprowadzanych w c++ 20.
+- **C++20 biblioteka techniczna : problemy i rozwiązania** ([biblioteka](https://koha.biblos.pk.edu.pl/cgi-bin/koha/opac-detail.pl?biblionumber=146870)) - omawia podobnie, jak poprzednia wszystkie tematy, lecz mam wrażenie, że wdaje się zbyt bardzo w szczegóły. Jest napisana w formie problem, rozwiązanie.
+- **C++ kompendium wiedzy** ([biblioteka](https://koha.biblos.pk.edu.pl/cgi-bin/koha/opac-detail.pl?biblionumber=119159)) - biblia do c++ napisana przez jego twórcę
+- **Programowanie. Teoria i praktyka z wykorzystaniem C++** ([biblioteka](https://koha.biblos.pk.edu.pl/cgi-bin/koha/opac-detail.pl?biblionumber=144572&query_desc=kw%2Cwrdl%3A%20programowanie%20teoria%20i%20praktyka)) - bardziej zaawansowana książka od poprzedniej, również stworzona przez autora c++ i również jest bardzo gruba
+- **Programowanie wieloplatformowe z C++ i wxWidgets 3** ([biblioteka](https://koha.biblos.pk.edu.pl/cgi-bin/koha/opac-detail.pl?biblionumber=136971)) - tworzenie interfejsu graficznego z wykorzystaniem wxWidgets
