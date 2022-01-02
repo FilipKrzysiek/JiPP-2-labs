@@ -15,7 +15,7 @@ int main() {
         throw"tekst z obszaru try"; // wyrzuć tekst
         return 0;
     } 
-    catch(constchar * msg) // złap wyrzucony tekst i przypisz do wskaźnika msg       
+    catch(const char * msg) // złap wyrzucony tekst i przypisz do wskaźnika msg       
     {                                                
         cout << msg << endl;
         return 1;
@@ -23,16 +23,36 @@ int main() {
 } 
 ```
 
+C++ posiada zdefiniowane wyjątki ich listę można znaleźć [tutaj](https://en.cppreference.com/w/cpp/error/exception).
+
 Łapanie wyjątków zdefiniowanych w bibliotece:
 
 ```c++
-
+int main()
+{
+    try {
+         int f = std::stoi("ABBA");
+    } catch (const invalid_argument& e) {
+        cout << "Allocation failed: " << e.what() << '\n';
+    } catch (...) {
+        cout << "Caught exception in default block" << endl;
+    }
+}
 ```
 
 Rzucanie wyjątków zdefiniowanych w bibliotece:
 
 ```c++
-
+int main()
+{
+    try {
+        throw invalid_argument("try block argument not found");
+    } catch (const invalid_argument& e) {
+        cout << "Invalid argument failed: " << e.what() << '\n';
+    } catch (...) {
+        cout << "Caught exception in default block" << endl;
+    }
+}
 ```
 
 &nbsp;
