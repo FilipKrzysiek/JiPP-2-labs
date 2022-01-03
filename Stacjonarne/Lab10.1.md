@@ -117,7 +117,9 @@ private:
 public:
     MyException(char * exceptionText): exceptionText(exceptionText) {}
     
-    
+    const char * what() {
+        return exceptionText;
+    }
 };
 ```
 
