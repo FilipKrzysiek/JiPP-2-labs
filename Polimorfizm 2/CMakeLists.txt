@@ -1,0 +1,1 @@
+add_executable(poli main.cpp TaskClass.cpp TaskClass.h TaskClassTemplate.h TaskFunction.cpp TaskFunction.h)
