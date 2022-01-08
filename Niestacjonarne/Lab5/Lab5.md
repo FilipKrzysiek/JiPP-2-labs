@@ -8,10 +8,15 @@
 - klasa błędów
 - polimorfizm znowu
 - szablony - uzupełnienie wiadomości
+- funkcje wirtualne
+
+## Tablice obiektów
+
+
 
 ## Zadanie 1
 
-Przeanalizuj kod znajdujący się [tutaj](Examples/example1.cpp).
+Przeanalizuj kod znajdujący się [tutaj](examples/example1.cpp).
 
 Analizę zacznij od funkcji main. Zastanów się, jakie konstruktory i destruktory zostaną wywołane i w jakiej kolejności.
 
@@ -242,7 +247,49 @@ Jeden błąd nie jest równy innemu błędowi, dlatego możemy dokonać podział
 
 ## Wyjątki
 
-Jednym ze sposobów obsługi błędów są wyjątki
+Jednym ze sposobów obsługi błędów są wyjątki. Posiadają one 2 bloki `try`, w którym próbujemy wykonać kod i `catch`, który wykonujemy w razie zaistnienia błędu.
+
+```c++
+try {
+    int f = std::stoi("ABBA");
+} catch (const invalid_argument& e) {
+    cout << "Allocation failed: " << e.what() << '\n';
+} catch (...) {
+    cout << "Caught exception in default block" << endl;
+}
+```
+
+Oczywiście nie jesteśmy skazani na łapanie wyjątków tylko i wyłącznie z bibliotek, możemy sami wyrzucać wyjątki, a nawet je tworzyć. Wyrzucanie wyjątku będzie wyglądało następująco:
+
+```c++
+throw invalid_argument("try block argument not found");
+```
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+# Szablony — uzupełnienie wiadomości
+
+Jeżeli deklarujemy szablony, to implementacja musi znajdować się w tym samym pliku (najprostsze rozwiązanie). Oczywiście istnieją wyjątki od reguły, np. używanie forward declarations, czyli deklarowanie jakie typy mogą zostać przekazane do szablonu. [Tutaj możesz zobaczyć przykład](examples/forwardDeclarations).
+
+> **Kiedy tego użyć?**
+> 
+> Tworzymy bibliotekę do obsługi plików i chcemy stworzyć uniwersalną metodę do odczytywania wartości, ale chcemy, aby można było odczytywać wybrane typy wartości. Oczywiście można stworzyć przeciążenia metod.
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+# Polimorfizm - utrwalenie wiadomości
 
 
 
