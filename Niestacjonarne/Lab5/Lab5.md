@@ -12,7 +12,22 @@
 
 ## Tablice obiektów
 
+Tablicę obiektów deklarujemy tak samo, jak normalną tablicę, lecz zamiast jednego z podstawowych typów podajemy nazwę klasy (tak, jakbyś deklarowali nowy obiekt).
 
+```c++
+class MyClass {
+    
+};
+
+int main() {
+    MyClass array[10];
+    return 0;
+}
+```
+
+&nbsp;
+
+&nbsp;
 
 ## Zadanie 1
 
@@ -289,8 +304,31 @@ Jeżeli deklarujemy szablony, to implementacja musi znajdować się w tym samym 
 
 &nbsp;
 
-# Polimorfizm - utrwalenie wiadomości
+# Polimorfizm i szablony — utrwalenie wiadomości
 
+Stwórz klasę `ListI`, która będzie interfejsem (będzie posiadać tylko wirtualne metody). Ma ona zawierać metody:
 
+- dodawania elementu na koniec
+- usuwania ostatniego elementu
+- dostępu do elementu na podanym indeksie
+
+Następnie stwórz klasy pochodne, które będą wykorzystywały następujące kontenery do przechowywania informacji:
+
+- vector
+- list
+- map
+- array
+
+&nbsp;
+
+Stwórz w funkcji main wskaźnik do obiektu typu `ListI`. Przypisz do niego jedną ze stworzonych klas pochodnych, przetestuj działanie, a następnie przetestuj pozostałe klasy pochodne.
+
+Czy zauważyłeś jakąś różnicę?
+
+&nbsp;
+
+**P.S.**
+
+Tak wiem, to zadanie ma średni sens teoretyczny, ale skupcie się na polimorfiźmie.
 
 
