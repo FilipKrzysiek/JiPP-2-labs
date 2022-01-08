@@ -740,11 +740,262 @@ Dodaj utwory do listy odtwarzania.
 Usuń utwór z listy odtwarzania.
 Odtwarzaj utwory w pętli (w tym ćwiczeniu wszystkie utwory zostaną wydrukowane raz).
 
+
+
 Kroki, aby wykonać ćwiczenie:
 - Najpierw zaprojektuj podstawową strukturę, która obsługuje cykliczną reprezentację danych.
 - Następnie zaimplementuj w strukturze funkcje wstawiania i usuwania, aby obsługiwać różne operacje.
 - Musimy napisać niestandardowy iterator. To trochę trudne. Ważne jest, aby upewnić się, że jesteśmy w stanie przejść przez kontener przy użyciu podejścia opartego na zakresie dla pętli. Stąd begin() i end() powinny zwracać różne adresy, chociaż struktura jest cykliczna.
 - Po zbudowaniu kontenera zbuduj na nim opakowanie, które będzie przechowywać różne utwory na liście odtwarzania i wykonywać odpowiednie operacje, takie jak następny, poprzedni, drukuj wszystko, wstawiaj i usuwaj.
 
+jak można wykonać zadanie:
+
+1) Najpierw uwzględnijmy nagłówek i napiszmy strukturę węzłów z wymaganymi danymi:
+
+``` #include <iostream>
+       template <typename T>
+       struct cir_list_node
+       {
+           T* data;
+           cir_list_node *next, *prev;
+       ~cir_list_node()
+           {
+               delete data;
+           }
+};
+       template <typename T>
+       struct cir_list
+       {
+           public:
+               using node = cir_list_node<T>;
+               using node_ptr = node*;
+           private:
+               node_ptr head;
+size_t n;
+```
+
+2) podstawowy konstruktor
+```
+public:
+       cir_list(): n(0)
+       {
+           head = new node{NULL, NULL, NULL};  
+           head->next = head;
+           head->prev = head;
+      }
+      size_t size() const
+      {
+            return n; 
+      }
+```
+
+3) funkcje wstawiania i usuwania
+```
+void insert(const T& value)
+      {
+          node_ptr newNode = new node{new T(value), NULL, NULL};
+          n++;
+      auto dummy = head->prev;
+      dummy->next = newNode;
+      newNode->prev = dummy;
+          if(head == dummy)
+          {
+              dummy->prev = newNode;
+              newNode->next = dummy;
+              head = newNode;
+              return;
+          }
+          newNode->next = head;
+          head->prev = newNode;
+          head = newNode;
+}
+      void erase(const T& value)
+      {
+          auto cur = head, dummy = head->prev;
+          while(cur != dummy)
+          {
+              if(*(cur->data) == value)
+              {
+                  cur->prev->next = cur->next;
+                  cur->next->prev = cur->prev;
+                  if(cur == head)
+                    head = head->next;
+        delete cur;
+        n--;
+        return; 
+        }
+    cur = cur->next;
+    }
+}
+```
+
+4)podstawowa struktura wymaganego iteratora
+```
+ struct cir_list_it
+      {
+      private:
+          node_ptr ptr;
+      public:
+          cir_list_it(node_ptr p) : ptr(p)
+          {}
+          T& operator*()
+          {
+              return *(ptr->data);
+          }
+          node_ptr get()
+          {
+              return ptr; 
+          }
+```
+
+5) podstawowe funkcje iteratora
+ ```
+ cir_list_it& operator++()
+      {
+          ptr = ptr->next;
+          return *this;
+      }
+      cir_list_it operator++(int)
+      { 
+          cir_list_it it = *this;
+          ++(*this);
+          return it;
+}
+```
+
+6) Dodajmy operacje związane z dekrementacją
+```
+ cir_list_it& operator--()
+      {
+          ptr = ptr->prev;
+          return *this;
+      }
+      cir_list_it operator--(int)
+      {
+          cir_list_it it = *this;
+          --(*this);
+          return it;
+}
+```
+
+7) Zaimplementujmy operatory związane z równością dla iteratora
+```
+friend bool operator==(const cir_list_it& it1, const cir_list_it& it2)
+      {
+          return it1.ptr == it2.ptr;
+      }
+      friend bool operator!=(const cir_list_it& it1, const cir_list_it& it2)
+      {
+          return it1.ptr != it2.ptr;
+      }
+};
+```
+
+8) funkcje begin i end
+
+```
+ cir_list_it begin()
+      {
+          return cir_list_it{head};
+      }
+      cir_list_it begin() const
+      {
+        return cir_list_it{head};
+    }
+    cir_list_it end()
+    {
+         return cir_list_it{head->prev};
+    }
+    cir_list_it end() const
+    {
+       return cir_list_it{head->prev};
+    }
+```
+
+9) Napiszmy konstruktor kopiujący, konstruktor listy inicjującej i destruktor
+
+```
+cir_list(const cir_list<T>& other): cir_list()
+{
+
+    //Chociaż poniższe wstawi elementy w odwrotnej kolejności, to
+    //nie będzie miało znaczenia w sensie logicznym, ponieważ jest to lista kołowa
+    for(const auto& i: other)
+               insert(i);
+}
+       cir_list(const std::initializer_list<T>& il): head(NULL), n(0)
+       {
+       // Although, the following will insert the elements in a reverse order, it
+       won't matter in a logical sense since this is a circular list.
+           for(const auto& i: il)
+               insert(i);
+}
+       ~cir_list()
+       {
+           while(size())
+           {
+               erase(head->data);
+           }
+} 
+};
+```
+
+10) Teraz dodajmy klasę do listy odtwarzania odtwarzacza muzyki dla naszej aktualnej aplikacji. Zamiast przechowywać utwory, po prostu zapiszemy liczby całkowite wskazujące identyfikator utworu
+
+``` 
+struct playlist
+      {
+          cir_list<int> list;
+```
+
+11) Zaimplementujmy teraz funkcje dodawania i usuwania utworów
+```
+void insert(int song)
+      {
+          list.insert(song);
+      }
+      void erase(int song)
+      {
+          list.erase(song);
+      }
+```
+
+12) Teraz zaimplementujmy funkcje, aby wydrukować wszystkie utwory
+```
+ void loopOnce()
+      {
+          for(auto& song: list)
+              std::cout << song << " ";
+          std::cout << std::endl;
+      }
+};
+```
+
+13) Napiszmy główną funkcję do korzystania z listy odtwarzania naszego odtwarzacza muzyki
+
+``` 
+int main() {
+          playlist pl;
+          pl.insert(1);
+          pl.insert(2);
+          std::cout << "Playlist: ";
+          pl.loopOnce();
+          playlist pl2 = pl;
+          pl2.erase(2);
+          pl2.insert(3);
+          std::cout << "Second playlist: ";
+          pl2.loopOnce();
+
+}
+
+```
+
+Po wykonaniu tego powinieneś otrzymać dane wyjściowe w ten sposób
+
+Playlist: 2 1
+Second playlist: 3 1
+
+
+      
 
 
