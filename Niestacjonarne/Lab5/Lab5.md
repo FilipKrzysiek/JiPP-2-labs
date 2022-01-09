@@ -329,6 +329,17 @@ Czy zauważyłeś jakąś różnicę?
 
 **P.S.**
 
-Tak wiem, to zadanie ma średni sens teoretyczny, ale skupcie się na polimorfiźmie.
+Tak wiem, to zadanie ma średni sens teoretyczny, ale skupcie się na polimorfizmie.
 
 
+&nbsp;
+
+&nbsp;
+
+&nbsp; 
+
+&nbsp;
+
+Na następnych zajęciach kolokwium i oddawanie projektów.
+
+Główna tematyka kolokwium, to polimorfizm.
