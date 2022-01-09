@@ -1,8 +1,11 @@
-# Laboratorium 11 (10.01.2022)
+# Laboratorium 11 (10.01.2022/17.01.2022)
 
 Celem tego laboratorium jest zapoznanie się z tematyką konwersji, wskaźników inteligentnych i wielowątkowości.
 
-# 1. Konwersje
+# 1. Konwersje 
+
+Konwersja zmiennych z jednego typu na inny nazywana jest konwersją typu. Celem konwersji typów jest sprawienie, aby zmienne jednego typu danych współpracowały ze zmiennymi innego typu danych. Przeprowadzamy to, aby skorzystać z niektórych aspektów reprezentacji typów i hierarchii. Kiedy więc konwersja typu będzie korzystna?
+
 
 
 
