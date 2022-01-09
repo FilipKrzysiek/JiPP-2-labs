@@ -80,6 +80,70 @@ return 0;
 W powyższym programie zadeklarowaliśmy num jako typ całkowity, a num2 jako zmienną typu double, a następnie przypisaliśmy num2 wartość 15.25. Następnie przypisujemy wartość num2 do zmiennej num za pomocą operatora przypisania. Tak więc kompilator C++ automatycznie konwertuje double na typ całkowity przed przypisaniem jej do zmiennej num i wydrukowaniem wartości obciętej do 15.
 
 
+Jawna konwersja typu
+Konwersje wymagające interwencji użytkownika w celu zmiany typu danych jednej zmiennej na inną są nazywane konwersją typu jawnego. Innymi słowy, jawna konwersja umożliwia programiście ręczną zmianę lub rzutowanie typu danych z jednej zmiennej na inny typ. Dlatego jest również znany jako rzutowanie typu. Ogólnie rzecz biorąc, wymuszamy jawną konwersję typu, aby przekonwertować dane z jednego typu na inny, ponieważ nie jest ona zgodna z regułą konwersji niejawnej.
+
+Jawna konwersja typu jest podzielona na dwa sposoby:
+- Jawna konwersja za pomocą operatora rzutowania
+- Jawna konwersja za pomocą operatora przypisania
+
+
+Program do konwersji wartości zmiennoprzecinkowej na typ int za pomocą operatora rzutowania
+Operator rzutowania: w języku C++ operator rzutowania jest operatorem jednoargumentowym, który wymusza konwersję jednego typu na inny.
+
+C++ obsługuje cztery typy rzutowania:
+- static cast
+- dynamic cast 
+- const cast
+- reinterpret cast
+
+
+Rozważmy przykład konwersji typu danych float na typ int przy użyciu operatora rzutowania jawnej konwersji w języku C++.
+
+```c++
+#include <iostream>  
+using namespace std;  
+int main ()  
+{  
+float f2 = 6.7;  
+// używamy operatora rzutowania, aby przekonwertować dane z jednego typu na inny
+int x = static_cast <int> (f2);  
+cout << " The value of x is: " << x;  
+return 0;  
+} 
+```
+
+
+Program do konwersji jednego typu danych na inny za pomocą operatora przypisania
+Rozważmy przykład konwersji typu danych jednej zmiennej na inną za pomocą operatora przypisania.
+
+```c++
+#include <iostream>  
+using namespace std;  
+int main ()  
+{  
+// ddeklarujemy zmienną typu float
+float num2;  
+// inicjujemy zmienną int 
+int num1 = 25;  
+  
+// konwertujemy typ danych z int na float 
+num2 = (float) num1;  
+cout << " The value of int num1 is: " << num1 << endl;  
+cout << " The value of float num2 is: " << num2 << endl;  
+return 0;  
+}  
+```
+
+Zalety konwersji typu:
+
+- Ma to na celu wykorzystanie pewnych cech hierarchii typów lub reprezentacji typów.
+- Pomaga obliczać wyrażenia zawierające zmienne o różnych typach danych.
+
+Zadanie:
+1) Napisz program, który pokaże mechanizm jawnej konwersji typu przez zmianę wartości double na liczbę całkowitą i użyj tej wartości całkowitej, aby znaleźć pole kwadratu.
+
+
 &nbsp;
 
 &nbsp;
