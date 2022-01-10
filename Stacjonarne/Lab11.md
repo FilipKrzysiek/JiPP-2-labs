@@ -13,8 +13,9 @@ Mamy dwie formy konwersji typów:
 - Niejawna konwersja typu
 - Jawna konwersja typu
 
+&nbsp;
 
-Niejawna konwersja typu
+### Niejawna konwersja typu
 
 Niejawna konwersja typu, znana również jako automatyczna konwersja typu, jest przeprowadzana przez kompilator bez konieczności wykonywania akcji przez użytkownika. Ma to miejsce, gdy występuje wyrażenie więcej niż jednego typu danych, w takim przypadku następuje konwersja typu w celu uniknięcia utraty danych.
 
@@ -38,6 +39,7 @@ int z = x + y;
 W powyższym przykładzie istnieją dwie zmienne o różnych typach -  x i y, gdzie x jest typem int, a y jest typem short int.  owa zmienna z jest również typem całkowitym, który przechowuje zmienne x i y. Ale kompilator C++ automatycznie konwertuje wartość typu danych o niższej randze (short int) na wyższy typ (int) przed otrzymaniem sumy dwóch liczb. W ten sposób pozwala uniknąć utraty danych, przepełnienia lub utraty znaku w niejawnej konwersji.
 
 Program do konwersji typu int na typ zmiennoprzecinkowy przy użyciu niejawnej konwersji typu
+
 Stwórzmy program do konwersji mniejszych typów danych na wyższe typy przy użyciu niejawnej konwersji typów.
 
 ```c++
@@ -79,8 +81,10 @@ return 0;
 
 W powyższym programie zadeklarowaliśmy num jako typ całkowity, a num2 jako zmienną typu double, a następnie przypisaliśmy num2 wartość 15.25. Następnie przypisujemy wartość num2 do zmiennej num za pomocą operatora przypisania. Tak więc kompilator C++ automatycznie konwertuje double na typ całkowity przed przypisaniem jej do zmiennej num i wydrukowaniem wartości obciętej do 15.
 
+&nbsp;
 
-Jawna konwersja typu
+### Jawna konwersja typu
+
 Konwersje wymagające interwencji użytkownika w celu zmiany typu danych jednej zmiennej na inną są nazywane konwersją typu jawnego. Innymi słowy, jawna konwersja umożliwia programiście ręczną zmianę lub rzutowanie typu danych z jednej zmiennej na inny typ. Dlatego jest również znany jako rzutowanie typu. Ogólnie rzecz biorąc, wymuszamy jawną konwersję typu, aby przekonwertować dane z jednego typu na inny, ponieważ nie jest ona zgodna z regułą konwersji niejawnej.
 
 Jawna konwersja typu jest podzielona na dwa sposoby:
@@ -89,13 +93,14 @@ Jawna konwersja typu jest podzielona na dwa sposoby:
 
 
 Program do konwersji wartości zmiennoprzecinkowej na typ int za pomocą operatora rzutowania
+
 Operator rzutowania: w języku C++ operator rzutowania jest operatorem jednoargumentowym, który wymusza konwersję jednego typu na inny.
 
 C++ obsługuje cztery typy rzutowania:
-- static cast
-- dynamic cast 
-- const cast
-- reinterpret cast
+- static cast - dla typów prostych (nie są wskaźnikami ani referencjami)
+- dynamic cast - konwersja wskaźników i klas na ich klasy pochodne, można tego dokonywać w górę i w dół
+- const cast - konwersja stałych na zmienne, zmiennych na stałe lub stałych jednego typu na inny typ
+- reinterpret cast - umożliwia konwertowanie dowolnego wskaźnika na dowolny typ innego wskaźnika
 
 
 Rozważmy przykład konwersji typu danych float na typ int przy użyciu operatora rzutowania jawnej konwersji w języku C++.
@@ -115,6 +120,7 @@ return 0;
 
 
 Program do konwersji jednego typu danych na inny za pomocą operatora przypisania
+
 Rozważmy przykład konwersji typu danych jednej zmiennej na inną za pomocą operatora przypisania.
 
 ```c++
@@ -134,6 +140,8 @@ cout << " The value of float num2 is: " << num2 << endl;
 return 0;  
 }  
 ```
+
+&nbsp;
 
 Zalety konwersji typu:
 
