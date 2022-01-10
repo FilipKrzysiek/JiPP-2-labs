@@ -81,6 +81,7 @@ W powyższym programie zadeklarowaliśmy num jako typ całkowity, a num2 jako zm
 
 
 Jawna konwersja typu
+
 Konwersje wymagające interwencji użytkownika w celu zmiany typu danych jednej zmiennej na inną są nazywane konwersją typu jawnego. Innymi słowy, jawna konwersja umożliwia programiście ręczną zmianę lub rzutowanie typu danych z jednej zmiennej na inny typ. Dlatego jest również znany jako rzutowanie typu. Ogólnie rzecz biorąc, wymuszamy jawną konwersję typu, aby przekonwertować dane z jednego typu na inny, ponieważ nie jest ona zgodna z regułą konwersji niejawnej.
 
 Jawna konwersja typu jest podzielona na dwa sposoby:
@@ -89,6 +90,7 @@ Jawna konwersja typu jest podzielona na dwa sposoby:
 
 
 Program do konwersji wartości zmiennoprzecinkowej na typ int za pomocą operatora rzutowania
+
 Operator rzutowania: w języku C++ operator rzutowania jest operatorem jednoargumentowym, który wymusza konwersję jednego typu na inny.
 
 C++ obsługuje cztery typy rzutowania:
