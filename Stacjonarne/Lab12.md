@@ -303,7 +303,7 @@ Tryb debugowania nie optymalizuje tworzonego pliku binarnego, ponieważ związek
 
 Release umożliwia optymalizację i generowanie bez żadnych danych debugowania, dzięki czemu jest w pełni zoptymalizowany. Wiele kodu może zostać całkowicie usuniętych lub przepisanych w trybie release. Wynikowy plik wykonywalny najprawdopodobniej nie będzie pasował do napisanego kodu. Z tego powodu tryb release będzie działał szybciej niż tryb debugowania ze względu na optymalizacje.
 
-## 4. 
+## 4. Współdzielenie zmiennych pomiędzy plikami cpp
 
 
 
