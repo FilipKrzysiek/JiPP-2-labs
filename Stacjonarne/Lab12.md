@@ -301,6 +301,10 @@ które ułatwiają znajdowanie usterek w aplikacji.
 
 Tryb debugowania nie optymalizuje tworzonego pliku binarnego, ponieważ związek między kodem źródłowym a wygenerowanymi instrukcjami jest bardziej złożony. Pozwala to na dokładne ustawienie breakpointów. Konfiguracja debugowania programu jest kompilowana z pełnymi symbolicznymi informacjami debugowania, które pomagają debugerowi określić, gdzie się znajduje w kodzie źródłowym.
 
+Release umożliwia optymalizację i generowanie bez żadnych danych debugowania, dzięki czemu jest w pełni zoptymalizowany. Wiele kodu może zostać całkowicie usuniętych lub przepisanych w trybie release. Wynikowy plik wykonywalny najprawdopodobniej nie będzie pasował do napisanego kodu. Z tego powodu tryb release będzie działał szybciej niż tryb debugowania ze względu na optymalizacje.
+
+## 4. 
+
 
 
 
