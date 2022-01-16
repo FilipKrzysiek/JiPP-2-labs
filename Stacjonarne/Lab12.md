@@ -305,6 +305,100 @@ Release umożliwia optymalizację i generowanie bez żadnych danych debugowania,
 
 ## 4. Współdzielenie zmiennych pomiędzy plikami cpp
 
+```extern```
+
+Jedno ze słów kluczowych oraz specyfikatorów (kwalifikatorów, modyfikatorów) klas pamięci dla deklarowanych obiektów. Oznacza, że deklaracja nie jest deklaracją w sensie fizycznym, a jedynie odwołaniem do deklaracji znajdującej się w innej jednostce kompilacji (module, pliku, bibliotece - przyp. autora). Jednym słowem, jest to sposób na poinformowanie kompilatora, by nie szukał danej zmiennej globalnej w aktualnym pliku. Jednak na tym nie koniec możliwości tego modyfikatora.
+
+! Specyfikatory extern i Static wzajemnie się wykluczają, dlatego nie zaleca się tworzenia deklaracji zawierających obydwa te słowa jednocześnie. Ponadto zabroniona jest inicjalizacja zmiennej zadeklarowanej z użyciem modyfikatora extern !
+
+
+
+Jak już zostało wspomniane, jeżeli extern poprzedza deklarację nie zainicjalizowanej zmiennej (globalnej lub lokalnej) albo stałej, oznacza to wówczas, że deklarowany obiekt nie zawiera się w danym pliku, a w innej jednostce kompilacji (może to być inny moduł, nagłówek, biblioteka statyczna lub dynamiczna itp.):
+
+
+/* ==== plik1.c ===== */
+```c++
+#include <stdio.h>
+#include <stdlib.h>
+
+   int liczba;  /* deklaracja zmiennej globalnej */
+
+   /* ... */
+
+   liczba = 13;
+
+   /* ... */
+```
+
+
+/* ==== plik2.c ===== */
+```c++
+#include <stdio.h>
+#include <stdlib.h>
+#include "plik1.h"
+
+   extern int liczba;  /* deklaracja zmiennej globalnej, znajdującej się w pliku 'plik1.c' */
+
+int main (int argc, char** argv)
+{
+   printf("liczba=%d\n", liczba);  /* → wypisze na wyjściu: liczba=13 */
+   return 0;
+}
+```
+
+
+Jeżeli specyfikator ten poprzedza deklarację stałej zainicjalizowanej, oznacza to, że taka stała posiada łączność zewnętrzną (więc z kolei extern przed stałą niezainicjalizowaną importuje taką stałą). W odróżnieniu od zmiennych, które można powstrzymać przed eksportowaniem symbolu przez specyfikator Static, stałe globalne wymagają extern, żeby eksportować symbol na zewnątrz.
+
+
+
+
+Wewnątrz funkcji deklaracje ze specyfikatorem extern również wskazują, że pamięć dla deklarowanych obiektów będzie zarezerwowana gdzie indziej. Jeżeli deklaracja obiektu wewnątrz bloku (pętli, funkcji itp. - przyp. autora) nie zawiera specyfikatora extern, wówczas obiekt ten nie ma łączności i jest unikalny w funkcji. W przeciwnym wypadku, gdy w zasięgu otaczającym dany blok obowiązuje zewnętrzna deklaracja tego samego obiektu, wówczas ma on taka samą łączność, jak w deklaracji zewnętrznej i odnosi się do tego samego obiektu:
+
+```c++
+/* ===== external.c ===== */
+#include <stdio.h>
+#include <stdlib.h>
+
+   extern int liczba;   /* zmienna zadeklarowana w innym module */
+
+int main (int argc, char** argv)
+{
+    int liczba;
+    {
+       extern int liczba;   /* deklaracja odwołuje się do zmiennej liczba, zadeklarowanej w obrębie najbliższego bloku */
+
+    }
+    return 0;
+}
+```
+
+
+Nierzadko można natrafić na deklarację prototypu funkcji, której typ wartości zwracanej poprzedzony jest specyfikatorem extern. Oznaczać to może chociażby deklarację funkcji, której ciało (oraz pierwotna deklaracja) znajduje się w innym module. Opcjonalnie można stosować ten specyfikator przed deklaracjami prototypu funkcji w tym samym module, zwłaszcza, gdy ciało danej funkcji umieszczona zostało poniżej funkcji głównej:
+
+```c++
+#include <stdio.h>
+#include <stdlib.h>
+
+   extern int kwadrat (int liczba);
+
+int main (int argc, char** argv)
+{
+    printf("Kwadrat liczby 8 wynosi %d\n", kwadrat(8));
+    return 0;
+}
+
+int kwadrat (int liczba)
+{
+    return liczba*liczba;
+}
+```
+
+Jak jednak zostało wspominane, nie jest to zabieg konieczny, a co za tym idzie, większość kompilatorów ignoruje ten specyfikator przed nazwą funkcji (każda deklaracja funkcji posiada ten kwalifikator domyślnie). Często jest to jednak wymóg w przypadkach, gdy w skład projektu wchodzą m.in. pliki asemblerowskie. Dzięki deklaracji z użyciem extern można się odwoływać do funkcji napisanych w assemblerze, a nigdzie wcześniej niezadeklarowanych (trochę więcej na ten temat w tej części artykułu).
+
+
+
+
+
 
 
 
