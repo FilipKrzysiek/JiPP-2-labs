@@ -80,8 +80,8 @@ void calculate(vector<vector<unsigned>> *matrix, vector<vector<unsigned>> *resul
     for(int i = 1; i < matrix->size() - 1; ++i) {
         for(int j = 1; j < matrix->at(i).size() - 1; ++j) {
             unsigned sum = 0;
-            for(int k = i - 1; k < i + 1; ++k) {
-                for(int n = j -1; n < j + 1; ++n) {
+            for(int k = i - 1; k < i + 2; ++k) {
+                for(int n = j - 1; n < j + 2; ++n) {
                     sum += matrix->at(k)[n];
                 }
             }
