@@ -5,6 +5,114 @@
 
 ## 1. Typ wyliczeniowy
 
+Tworzymy aplikację, ktora ma kilka trybów działania np:
+
+- pobieranie danych
+- wypisywanie
+- analizowani
+- krzyczenie na użytkownika
+
+Chcemy zapisać, w jakim aktualnie trybie ona działa, jakiego typu zmiennej byś użył?
+
+`int` może `short`, albo klasa z kilkoma `bool`
+
+&nbsp;
+
+C++ przychodzi do nas z genialniejszym rozwiązaniem, typami wyliczeniowymi. Typ wyliczeniowy to taka zmienna, która posiada zadeklarowane swoje wartości, i tylko je można do niej przypisać.
+
+```c++
+enum nazwa_typu {
+    //wartości
+};
+```
+
+&nbsp;
+
+Zadeklarujmy typ wyliczeniowy dla naszego przykładu.
+
+```c++
+enum appMode {
+    DOWNLOADING_DATA,
+    PRINTING_DATA,
+    ANALYSING_DATA,
+    SHOUT_AT_USER
+};
+```
+
+Jak zapewne zauważyłeś, wszystkie „wartości” są pisane wielkimi literami. Jest tak robione, aby łatwo można było odróżnić nazwy zmiennych, bądź funkcji od „wartości” typów wyliczeniowych.
+
+&nbsp;
+
+Zadeklarujmy teraz zmienną z typem wyliczeniowym i przypiszmy mu wartość.
+
+```c++
+enum appMode {
+    DOWNLOADING_DATA,
+    PRINTING_DATA,
+    ANALYSING_DATA,
+    SHOUT_AT_USER
+};
+
+int main() {
+    appMode actualMode = DOWNLOADING_DATA;
+    cout << actualMode << endl;
+    
+    actualMode = PRINTING_DATA;
+    cout << actualMode << endl;
+    
+    actualMode = ANALYSING_DATA;
+    cout << actualMode << endl;
+}
+```
+
+Jak pewnie zauważyłeś „wartościom” typów wyliczeniowych są przypisywane wartości liczbowe, każda kolejna deklaracja posiada zwiększoną o 1 wartość liczbową. Teraz zobacz na kolejny przykład, gdzie nadpisujemy wartości (tak można to robić).
+
+```c++
+enum dni {
+    PON,
+    WT,
+    SR = 0,
+    CZW = 0,
+    PT = 0,
+    SO,
+    N
+};
+
+int main() {
+    dni actualDay = PON;
+    cout << actualDay << endl;
+    
+    actualDay = WT;
+    cout << actualDay << endl;
+    
+    actualDay = SR;
+    cout << actualDay << endl;
+    
+    actualDay = CZW;
+    cout << actualDay << endl;
+    
+    actualDay = PT;
+    cout << actualDay << endl;
+    
+    actualDay = SO;
+    cout << actualDay << endl;
+    
+    actualDay = N;
+    cout << actualDay << endl;
+    
+    actualDay = PON;
+    dni actualDay1 = WT;
+    
+    cout << endl << "PON == WT" << endl;
+    cout << (actualDay == actualDay1) << endl;
+    
+    actualDay = PON;
+    actualDay1 = SR;
+    
+    cout << endl << "PON == SR" << endl;
+    cout << (actualDay == actualDay1) << endl;
+}
+```
 
 &nbsp;
 
