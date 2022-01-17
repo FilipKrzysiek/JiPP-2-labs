@@ -118,7 +118,45 @@ int main() {
 
 &nbsp;
 
-## 2. Wielowątkowość
+## 2. Debug, release
+
+Tryb debug i release to różne konfiguracje do tworzenia projektu. Programiści zazwyczaj używają trybu debug do debugowania krok po kroku swojego projektu
+i wybierają tryb release dla ostatecznej kompilacji.
+
+Tryb debug oznacza, że uruchamiamy aplikację z dołączonym debugerem. Dzięki temu możemy korzystać z pełnego zestawu funkcji debugowania,
+które ułatwiają znajdowanie usterek w aplikacji.
+
+Tryb debugowania nie optymalizuje tworzonego pliku binarnego, ponieważ związek między kodem źródłowym a wygenerowanymi instrukcjami jest bardziej złożony. Pozwala to na dokładne ustawienie breakpointów. Konfiguracja debugowania programu jest kompilowana z pełnymi symbolicznymi informacjami debugowania, które pomagają debugerowi określić, gdzie się znajduje w kodzie źródłowym.
+
+Release umożliwia optymalizację i generowanie bez żadnych danych debugowania, dzięki czemu jest w pełni zoptymalizowany. Wiele kodu może zostać całkowicie usuniętych lub przepisanych w trybie release. Wynikowy plik wykonywalny najprawdopodobniej nie będzie pasował do napisanego kodu. Z tego powodu tryb release będzie działał szybciej niż tryb debugowania ze względu na optymalizacje.
+
+&nbsp;
+
+### Zmiana trybu kompilacji
+
+Aby zmienić tryb kompilacji w clion, należy otworzyć ustawienia i przejść do zakładki `CMake`.
+
+![img.png](img.png)
+
+Można odrazu zmienić `build type`, lecz lepszym rozwiązaniem będzie dodanie kolejnego trybu budowania poprzez znaczek plusa.
+
+![img_1.png](img_1.png)
+
+Teraz obok ikony budowania, w rozwijalnym menu mamy do wyboru, w jakim trybie chcemy zbudować nasz program.
+
+![img_2.png](img_2.png)
+
+&nbsp;
+
+### Zadanie
+
+1. Skompiluj program, który znajduje się [tutaj](Examples/Matrix) w trybie `debug` i `release`. Porównaj czasy wykonywania poszczególnych etapów.
+
+&nbsp;
+
+&nbsp;
+
+## 3. Wielowątkowość
 
 Dotychczas wszystkie tworzone przez nasz aplikacje były jednowątkowe, jedno zadanie było wykonywane w tym samym czasie.
 C++ ma wbudowana wielowątkowość i stosunkowo łatwo ją używać, wystarczy załączyć bibliotekę `thread` i przypisać zadanie do wątku.
@@ -285,23 +323,11 @@ Powyższy kod zabezpiecza sekcję krytyczną przed tym, aby w jej środku mógł
 ### Zadanie
 
 1. Popraw przykład z wyszukiwanie maksimum.
-2. Uruchom program [który znajduje się tutaj](Examples/Matrix) wielowątkow.
+2. Uruchom program, który uruchamiałeś przy porównaniu debug i release [(znajduje się tutaj)](Examples/Matrix) i zaimplementuj w nim wielowątkowość.
 
 &nbsp;
 
 &nbsp;
-
-## 3. Debug, release
-
-Tryb debug i release to różne konfiguracje do tworzenia projektu. Programiści zazwyczaj używają trybu debug do debugowania krok po kroku swojego projektu 
-i wybierają tryb release dla ostatecznej kompilacji. 
-
-Tryb debug oznacza, że uruchamiamy aplikację z dołączonym debugerem. Dzięki temu możemy korzystać z pełnego zestawu funkcji debugowania, 
-które ułatwiają znajdowanie usterek w aplikacji. 
-
-Tryb debugowania nie optymalizuje tworzonego pliku binarnego, ponieważ związek między kodem źródłowym a wygenerowanymi instrukcjami jest bardziej złożony. Pozwala to na dokładne ustawienie breakpointów. Konfiguracja debugowania programu jest kompilowana z pełnymi symbolicznymi informacjami debugowania, które pomagają debugerowi określić, gdzie się znajduje w kodzie źródłowym.
-
-Release umożliwia optymalizację i generowanie bez żadnych danych debugowania, dzięki czemu jest w pełni zoptymalizowany. Wiele kodu może zostać całkowicie usuniętych lub przepisanych w trybie release. Wynikowy plik wykonywalny najprawdopodobniej nie będzie pasował do napisanego kodu. Z tego powodu tryb release będzie działał szybciej niż tryb debugowania ze względu na optymalizacje.
 
 ## 4. Współdzielenie zmiennych pomiędzy plikami cpp
 
@@ -346,6 +372,11 @@ int main (int argc, char** argv)
 }
 ```
 
+[Zobacz przykład](Examples/extern)
+
+[Zobacz przykład bez extern](Examples/withoutExtern)
+
+&nbsp;
 
 Jeżeli specyfikator ten poprzedza deklarację stałej zainicjalizowanej, oznacza to, że taka stała posiada łączność zewnętrzną (więc z kolei extern przed stałą niezainicjalizowaną importuje taką stałą). W odróżnieniu od zmiennych, które można powstrzymać przed eksportowaniem symbolu przez specyfikator Static, stałe globalne wymagają extern, żeby eksportować symbol na zewnątrz.
 
