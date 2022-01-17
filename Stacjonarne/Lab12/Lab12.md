@@ -165,6 +165,17 @@ Teraz obok ikony budowania, w rozwijalnym menu mamy do wyboru, w jakim trybie ch
 Dotychczas wszystkie tworzone przez nasz aplikacje były jednowątkowe, jedno zadanie było wykonywane w tym samym czasie.
 C++ ma wbudowana wielowątkowość i stosunkowo łatwo ją używać, wystarczy załączyć bibliotekę `thread` i przypisać zadanie do wątku.
 
+
+&nbsp;
+
+Aby program poprawnie się skompilował należy dodać bibliotekę `pthread` w CMake.
+
+```cmake
+target_link_libraries(NazwaTargetu pthread)
+```
+
+Przykład:
+
 ```c++
 #include <iostream>
 #include <thread>
