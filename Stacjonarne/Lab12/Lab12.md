@@ -434,6 +434,26 @@ Jak jednak zostało wspominane, nie jest to zabieg konieczny, a co za tym idzie,
 
 
 
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+
+## 5. Biblioteki zewnętrzne
+
+Programując wielokrotnie skorzystamy z bibliotek zewnętrznych. Ktoś je za nas stworzył i ktoś się nimi opiekuję, więc, czemu by z tego nie skorzystać. Najprostszym rozwiązaniem będzie umieszczenie biblioteki w folderze lib, a następnie dodanie podfolderu w pliku CMake.
+
+Przykładem biblioteki, którą można użyć, jest spdlog, służąca do tworzenia loggerów. Szczyci się tym, że jest bardzo szybka, a dodatkowym jej aspektem jest stosunkowo dobra dokumentacja.
+
+Bibliotekę znajdziesz na githubie: [https://github.com/gabime/spdlog](https://github.com/gabime/spdlog)
+
+Dokumentację w zakładce wiki: [https://github.com/gabime/spdlog/wiki](https://github.com/gabime/spdlog/wiki)
+
+&nbsp;
+
+Zapoznaj się z tym, jak tę bibliotekę zainstalować i co dzięki niej możesz uzyskać.
 
 
 
