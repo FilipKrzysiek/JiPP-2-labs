@@ -118,6 +118,8 @@ int main() {
 
 &nbsp;
 
+&nbsp;
+
 ## 2. Debug, release
 
 Tryb debug i release to różne konfiguracje do tworzenia projektu. Programiści zazwyczaj używają trybu debug do debugowania krok po kroku swojego projektu
@@ -136,21 +138,23 @@ Release umożliwia optymalizację i generowanie bez żadnych danych debugowania,
 
 Aby zmienić tryb kompilacji w clion, należy otworzyć ustawienia i przejść do zakładki `CMake`.
 
-![img.png](img.png)
+![img.png](img/img.png)
 
 Można odrazu zmienić `build type`, lecz lepszym rozwiązaniem będzie dodanie kolejnego trybu budowania poprzez znaczek plusa.
 
-![img_1.png](img_1.png)
+![img_1.png](img/img_1.png)
 
 Teraz obok ikony budowania, w rozwijalnym menu mamy do wyboru, w jakim trybie chcemy zbudować nasz program.
 
-![img_2.png](img_2.png)
+![img_2.png](img/img_2.png)
 
 &nbsp;
 
 ### Zadanie
 
 1. Skompiluj program, który znajduje się [tutaj](Examples/Matrix) w trybie `debug` i `release`. Porównaj czasy wykonywania poszczególnych etapów.
+
+&nbsp;
 
 &nbsp;
 
@@ -324,6 +328,8 @@ Powyższy kod zabezpiecza sekcję krytyczną przed tym, aby w jej środku mógł
 
 1. Popraw przykład z wyszukiwanie maksimum.
 2. Uruchom program, który uruchamiałeś przy porównaniu debug i release [(znajduje się tutaj)](Examples/Matrix) i zaimplementuj w nim wielowątkowość.
+
+&nbsp;
 
 &nbsp;
 
